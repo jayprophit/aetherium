@@ -4,7 +4,7 @@ FastAPI backend for Knowledge Base AI Assistant
 - Search endpoint
 - Plugin/tool execution endpoint (stub)
 """
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, APIRouter
 from pydantic import BaseModel
 from typing import List, Optional
 import os
@@ -13,8 +13,20 @@ import faiss
 import openai
 import numpy as np
 import json
+import socketio
+from fastapi.middleware.cors import CORSMiddleware
 
+sio = socketio.AsyncServer(async_mode='asgi', cors_allowed_origins='*')
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+app_sio = socketio.ASGIApp(sio, app)
+api_router = APIRouter()
 
 # --- Models ---
 class ChatRequest(BaseModel):
@@ -82,7 +94,7 @@ def semantic_search(query, top_k=3):
     return results
 
 # --- Endpoints ---
-@app.post('/chat')
+@api_router.post('/chat')
 def chat(req: ChatRequest):
     # Use semantic search and LLM for response
     context_docs = semantic_search(req.message, top_k=3)
@@ -95,7 +107,7 @@ def chat(req: ChatRequest):
     )
     return {"response": response['choices'][0]['text'].strip()}
 
-@app.post('/search')
+@api_router.post('/search')
 def search(req: SearchRequest):
     # Simple keyword search
     results = []
@@ -106,38 +118,40 @@ def search(req: SearchRequest):
                 break
     return {"results": results}
 
-@app.post('/tool')
+@api_router.post('/tool')
 def tool(req: ToolRequest):
     # Call the plugin/tool system
     result = run_tool(req.tool, req.args)
     return {"result": result}
 
-@app.post('/semantic_search')
+@api_router.post('/semantic_search')
 def semantic_search_endpoint(req: SearchRequest):
     results = semantic_search(req.query, req.top_k)
     return {"results": results}
 
-@app.get('/plugin_marketplace')
+@api_router.get('/plugin_marketplace')
 def plugin_marketplace():
     # List all available plugins with quantum properties and descriptions
     return {"plugins": list_plugins()}
 
-@app.post('/run_plugin')
+@api_router.post('/run_plugin')
 def run_plugin(req: ToolRequest):
     result = run_tool(req.tool, req.args)
     return {"result": result}
 
-@app.post('/run_plugin_chain')
+@api_router.post('/run_plugin_chain')
 async def run_plugin_chain_endpoint(request: Request):
     data = await request.json()
     chain = data['chain']
     results = run_plugin_chain(chain)
     return {"results": results}
 
-@app.post('/quantum_ai')
+@api_router.post('/quantum_ai')
 def quantum_ai_endpoint(req: ChatRequest):
     # Stub: Quantum AI with time crystals (theoretical)
     return {"response": "[Quantum AI] This feature is under active research. Time crystals and quantum effects will be simulated using available scientific models and your knowledge-base."}
+
+app.include_router(api_router, prefix="/api")
 
 # --- Helper ---
 def retrieve_relevant_docs(query):
@@ -146,3 +160,25 @@ def retrieve_relevant_docs(query):
         if query.lower() in content.lower():
             return content[:1000]
     return "No relevant docs found."
+
+# --- Real-time graph state (in-memory, per-room for demo) ---
+graph_state = {'nodes': [], 'edges': []}
+
+@sio.event
+def connect(sid, environ):
+    print('Client connected:', sid)
+    sio.emit('graph', graph_state, to=sid)
+
+@sio.event
+def update_graph(sid, data):
+    graph_state['nodes'] = data.get('nodes', [])
+    graph_state['edges'] = data.get('edges', [])
+    sio.emit('graph', graph_state, skip_sid=sid)
+
+@sio.event
+def disconnect(sid):
+    print('Client disconnected:', sid)
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app_sio", host="0.0.0.0", port=4000, reload=True)

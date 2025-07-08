@@ -1,4 +1,5 @@
 # Sample requirements.txt for backend
 fastapi
-uvicorn
+uvicorn[standard]
 pytest
+python-socketio

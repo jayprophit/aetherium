@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ChatApp from './ChatApp';
 import PluginMarketplace from './PluginMarketplace';
 import PluginChainBuilder from './PluginChainBuilder';
+import PluginGraphBuilder from './PluginGraphBuilder';
 
 function App() {
   const [plugins, setPlugins] = useState([]);
@@ -17,6 +18,7 @@ function App() {
       <hr/>
       <PluginMarketplace />
       <PluginChainBuilder plugins={plugins} />
+      <PluginGraphBuilder plugins={plugins} />
     </div>
   );
 }
