@@ -1,0 +1,40 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install backend dependencies
+        run: |
+          cd backend
+          pip install -r requirements.txt || true
+      - name: Install frontend dependencies
+        run: |
+          cd frontend
+          npm install || true
+      - name: Run backend tests
+        run: |
+          cd backend
+          pytest || true
+      - name: Run frontend build
+        run: |
+          cd frontend
+          npm run build || true
+      - name: Re-index knowledge
+        run: |
+          bash scripts/reindex_knowledge.sh

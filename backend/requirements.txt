@@ -1,0 +1,4 @@
+# Sample requirements.txt for backend
+fastapi
+uvicorn
+pytest
