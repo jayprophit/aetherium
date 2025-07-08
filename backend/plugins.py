@@ -2,29 +2,9 @@
 Plugin/tool system for Knowledge Base AI Assistant
 Add new tools by subclassing ToolPlugin and registering in the registry.
 """
-class ToolPlugin:
-    name = "base"
-    def run(self, args):
-        return f"Base tool does nothing. Args: {args}"
-
-# Example plugin: Echo
-class EchoPlugin(ToolPlugin):
-    name = "echo"
-    def run(self, args):
-        return f"Echo: {args.get('text', '')}"
-
-# Plugin registry
-tool_registry = {
-    EchoPlugin.name: EchoPlugin(),
-}
-
-def run_tool(tool, args):
-    plugin = tool_registry.get(tool)
-    if plugin:
-        return plugin.run(args)
-    return f"Tool {tool} not found."
-
 import requests
+import random
+import time
 
 # Plugin registry for marketplace
 PLUGIN_REGISTRY = {}
@@ -57,6 +37,28 @@ def quantum_entanglement_plugin(args):
         'explanation': "This plugin simulates quantum entanglement between two entities."
     }
 
+@plugin(name="quantum_time_crystal", quantum_properties=["time_crystal", "periodicity"])
+def quantum_time_crystal_plugin(args):
+    """Simulate a time crystal: periodic plugin execution and memory"""
+    period = args.get('period', 2)
+    cycles = args.get('cycles', 3)
+    events = []
+    for i in range(cycles):
+        events.append(f"Cycle {i+1}: Time crystal state at t={i*period}s")
+    return {
+        'result': events,
+        'explanation': f"Simulated time crystal with period {period}s for {cycles} cycles."
+    }
+
+@plugin(name="quantum_random", quantum_properties=["quantum_randomness"])
+def quantum_random_plugin(args):
+    """Quantum random number generator (simulated)"""
+    n = args.get('n', 1)
+    return {
+        'result': [random.choice([0, 1]) for _ in range(n)],
+        'explanation': "Simulated quantum random bitstring."
+    }
+
 @plugin(name="arxiv_quantum_latest")
 def arxiv_quantum_latest_plugin(args):
     """Fetch latest quantum physics papers from arXiv"""
@@ -64,10 +66,32 @@ def arxiv_quantum_latest_plugin(args):
     resp = requests.get(url)
     if resp.status_code != 200:
         return {'error': 'Failed to fetch from arXiv'}
-    # Simple parse: extract titles
     import re
-    titles = re.findall(r'<title>(.*?)</title>', resp.text)[1:]  # skip feed title
+    titles = re.findall(r'<title>(.*?)</title>', resp.text)[1:]
     return {'papers': titles}
+
+@plugin(name="arxiv_summarize")
+def arxiv_summarize_plugin(args):
+    """Fetch and summarize a quantum physics paper from arXiv by title keyword"""
+    keyword = args.get('keyword', 'quantum')
+    url = f"http://export.arxiv.org/api/query?search_query=all:{keyword}&sortBy=lastUpdatedDate&max_results=1"
+    resp = requests.get(url)
+    if resp.status_code != 200:
+        return {'error': 'Failed to fetch from arXiv'}
+    import re
+    titles = re.findall(r'<title>(.*?)</title>', resp.text)[1:]
+    summaries = re.findall(r'<summary>(.*?)</summary>', resp.text, re.DOTALL)
+    return {'title': titles[0] if titles else '', 'summary': summaries[0].strip() if summaries else ''}
+
+@plugin(name="ai_code_generator", quantum_properties=["ai", "code_generation"])
+def ai_code_generator_plugin(args):
+    """Generate Python code for a given task using LLM (stub)"""
+    task = args.get('task', 'print Hello World')
+    # In production, call LLM API here
+    return {
+        'result': f"def solution():\n    # {task}\n    print('Hello World')",
+        'explanation': "Stub: Replace with LLM code generation API."
+    }
 
 def run_tool(tool, args):
     plugin = PLUGIN_REGISTRY.get(tool)
