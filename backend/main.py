@@ -8,7 +8,7 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from typing import List, Optional
 import os
-from plugins import run_tool, list_plugins
+from plugins import run_tool, list_plugins, run_plugin_chain
 import faiss
 import openai
 import numpy as np
@@ -126,6 +126,13 @@ def plugin_marketplace():
 def run_plugin(req: ToolRequest):
     result = run_tool(req.tool, req.args)
     return {"result": result}
+
+@app.post('/run_plugin_chain')
+async def run_plugin_chain_endpoint(request: Request):
+    data = await request.json()
+    chain = data['chain']
+    results = run_plugin_chain(chain)
+    return {"results": results}
 
 @app.post('/quantum_ai')
 def quantum_ai_endpoint(req: ChatRequest):
