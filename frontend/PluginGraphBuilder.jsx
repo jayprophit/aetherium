@@ -4,7 +4,7 @@ import ReactFlow, {
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import io from 'socket.io-client';
-import { FaAtom, FaRobot, FaPlug, FaPuzzlePiece, FaLock, FaUnlock, FaChevronDown, FaChevronRight, FaExclamationTriangle, FaCommentDots, FaHistory } from 'react-icons/fa';
+import { FaAtom, FaRobot, FaPlug, FaPuzzlePiece, FaLock, FaUnlock, FaChevronDown, FaChevronRight, FaExclamationTriangle, FaCommentDots, FaHistory, FaUserShield, FaUsers, FaStore } from 'react-icons/fa';
 
 const PLUGIN_COLORS = {
   quantum: '#e1bee7',
@@ -70,6 +70,21 @@ function PluginGraphBuilder({ plugins }) {
   const [showComments, setShowComments] = useState(null); // nodeId
   const [userName] = useState(() => 'User' + Math.floor(Math.random()*1000));
   const [advValidation, setAdvValidation] = useState('');
+  const [nodePermissions, setNodePermissions] = useState({}); // {nodeId: {owner, editors:[]}}
+  const [showPerms, setShowPerms] = useState(null); // nodeId
+  const [nodeLogs, setNodeLogs] = useState({}); // {nodeId: [log]}
+  const [showLogs, setShowLogs] = useState(null); // nodeId
+  const [showMarketplace, setShowMarketplace] = useState(false);
+  const [triggeringNode, setTriggeringNode] = useState(null); // nodeId for per-node trigger
+  const [aiSuggesting, setAiSuggesting] = useState(false);
+  const [aiSuggestion, setAiSuggestion] = useState(null);
+  const [pluginInstallStatus, setPluginInstallStatus] = useState({}); // {pluginName: 'installed'|'installing'|'upgrading'}
+  const [autoCompleting, setAutoCompleting] = useState(false);
+  const [autoCompleteResult, setAutoCompleteResult] = useState(null);
+  const [smartConnecting, setSmartConnecting] = useState(false);
+  const [smartConnectResult, setSmartConnectResult] = useState(null);
+  const [optimizing, setOptimizing] = useState(false);
+  const [optimizeResult, setOptimizeResult] = useState(null);
 
   useEffect(() => {
     socket.current = io('http://localhost:4000');
@@ -262,166 +277,780 @@ function PluginGraphBuilder({ plugins }) {
     }
     setNodeResults(resultMap);
     setNodes(nds => nds.map(n => n.id in resultMap ? { ...n, data: { ...n.data, result: resultMap[n.id] } } : { ...n, data: { ...n.data, result: undefined } }));
+    // Save logs
+    setNodeLogs(logs => {
+      const newLogs = {...logs};
+      Object.entries(resultMap).forEach(([id, res]) => {
+        if (!newLogs[id]) newLogs[id] = [];
+        newLogs[id].push({ result: res, time: Date.now() });
+      });
+      return newLogs;
+    });
     setExecuting(false);
   };
 
-  // Export/import
-  const exportGraph = () => {
-    setImportExport(JSON.stringify({ nodes, edges }, null, 2));
-    setShowImport(true);
-  };
-  const importGraph = () => {
-    try {
-      const { nodes: n, edges: e } = JSON.parse(importExport);
-      setNodes(n);
-      setEdges(e);
-      setShowImport(false);
-    } catch {
-      alert('Invalid JSON');
+  // Per-node execution trigger
+  const runNode = async (nodeId) => {
+    setTriggeringNode(nodeId);
+    // Find all upstream nodes (simple BFS)
+    const upstream = new Set();
+    function collectUpstream(id) {
+      edges.filter(e => e.target === id).forEach(e => {
+        if (!upstream.has(e.source)) {
+          upstream.add(e.source);
+          collectUpstream(e.source);
+        }
+      });
     }
-  };
-  const clearGraph = () => {
-    setNodes([{ id: '1', type: 'input', data: { label: 'Start' }, position: { x: 0, y: 50 } }]);
-    setEdges([]);
-    setLiveResult(null);
-    setNodeResults({});
-  };
-
-  // Custom node renderer for result badge/tooltip
-  const nodeTypes = {
-    default: ({ id, data, selected }) => (
-      <div style={{
-        border: selected || selectedNodes.includes(id) ? '2.5px solid #1976d2' : '1.5px solid #bbb',
-        borderRadius: 10,
-        background: data.result !== undefined ? '#e3fcec' : getNodeColor(data.label),
-        minWidth: 90,
-        minHeight: 40,
-        padding: 8,
-        position: 'relative',
-        boxShadow: data.result !== undefined ? '0 0 12px #b2f5ea' : undefined,
-        transition: 'box-shadow 0.2s, border 0.2s',
-        cursor: lockedNodes.includes(id) ? 'not-allowed' : 'pointer',
-        outline: selected || selectedNodes.includes(id) ? '2px solid #90caf9' : undefined,
-        opacity: lockedNodes.includes(id) ? 0.7 : 1
-      }}>
-        <div style={{display:'flex',alignItems:'center',gap:6}}>
-          {getNodeIcon(data.label)}
-          <span style={{fontWeight:'bold'}}>{data.label}</span>
-          <span style={{marginLeft:4, cursor:'pointer'}} onClick={e=>{e.stopPropagation();toggleLockNode(id);}} title={lockedNodes.includes(id)?'Unlock':'Lock'}>
-            {lockedNodes.includes(id)?<FaLock/>:<FaUnlock/>}
-          </span>
-          <span style={{marginLeft:2, cursor:'pointer'}} onClick={e=>{e.stopPropagation();openNote(id);}} title={nodeNotes[id]?'Edit note':'Add note'}>
-            <FaPuzzlePiece style={{color: nodeNotes[id]?'#1976d2':'#bbb'}}/>
-          </span>
-          <span style={{marginLeft:2, cursor:'pointer'}} onClick={e=>{e.stopPropagation();openComments(id);}} title="Comments"><FaCommentDots/></span>
-          <span style={{marginLeft:2, cursor:'pointer'}} onClick={e=>{e.stopPropagation();openVersion(id);}} title="Version history"><FaHistory/></span>
-        </div>
-        {data.args && <div style={{fontSize:12, color:'#888'}}>args: {data.args}</div>}
-        {nodeNotes[id] && <div style={{fontSize:11, color:'#1976d2', marginTop:2, fontStyle:'italic'}}>{nodeNotes[id]}</div>}
-        {data.result !== undefined && (
-          <div style={{
-            position:'absolute', right:6, top:6, background:'#1976d2', color:'#fff', borderRadius:4, padding:'2px 6px', fontSize:11
-          }} title={typeof data.result === 'object' ? JSON.stringify(data.result) : String(data.result)}>
-            ✓
-          </div>
-        )}
-        {data.result !== undefined && (
-          <div style={{marginTop:6, fontSize:12, color:'#1976d2', wordBreak:'break-all'}}>
-            {typeof data.result === 'object' ? JSON.stringify(data.result) : String(data.result)}
-          </div>
-        )}
-      </div>
-    )
+    collectUpstream(nodeId);
+    const nodeMap = Object.fromEntries(nodes.map(n => [n.id, n]));
+    const chain = [...upstream].map(id => nodeMap[id]).concat([nodeMap[nodeId]])
+      .filter(Boolean)
+      .filter(n => n.id !== '1')
+      .map(n => ({ tool: n.data.label, args: JSON.parse(n.data.args || '{}'), nodeId: n.id }));
+    const res = await fetch('/api/run_plugin_chain', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chain })
+    }).then(r => r.json());
+    // Map results to node ids
+    const resultMap = {};
+    if (res.results && Array.isArray(res.results)) {
+      res.results.forEach((r, i) => {
+        const nodeId = chain[i]?.nodeId;
+        if (nodeId) resultMap[nodeId] = r.result;
+      });
+    }
+    setNodeResults(r => ({...r, ...resultMap}));
+    setNodes(nds => nds.map(n => n.id in resultMap ? { ...n, data: { ...n.data, result: resultMap[n.id] } } : n));
+    setNodeLogs(logs => {
+      const newLogs = {...logs};
+      Object.entries(resultMap).forEach(([id, res]) => {
+        if (!newLogs[id]) newLogs[id] = [];
+        newLogs[id].push({ result: res, time: Date.now() });
+      });
+      return newLogs;
+    });
+    setTriggeringNode(null);
   };
 
-  // Plugin info tooltip
-  const pluginInfo = hoveredPlugin && plugins.find(p => p.name === hoveredPlugin);
+  // AI-powered graph suggestion (real backend, retry)
+  const suggestNextNode = async (retry = false) => {
+    setAiSuggesting(true);
+    setAiSuggestion(null);
+    try {
+      const res = await fetch('/api/suggest_next_node', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setAiSuggestion(data.suggestion);
+    } catch (e) {
+      setAiSuggestion({ error: 'Failed to get suggestion from backend.' });
+    }
+    setAiSuggesting(false);
+  };
+  const addAiSuggestion = () => {
+    if (!aiSuggestion || !aiSuggestion.label) return;
+    const id = (nodes.length + 1).toString();
+    setNodes(nds => [...nds, {
+      id,
+      data: { label: aiSuggestion.label, args: JSON.stringify(aiSuggestion.args||{}) },
+      position: { x: 120 + Math.random() * 200, y: 120 + Math.random() * 200 },
+      trigger: aiSuggestion.trigger || null
+    }]);
+    setAiSuggestion(null);
+  };
 
-  // Node search/filter
-  const filteredNodes = search
-    ? nodes.filter(n => n.data.label.toLowerCase().includes(search.toLowerCase()))
-    : nodes;
+  // Auto-complete graph (AI): suggest and add multiple nodes/edges
+  const autoCompleteGraph = async () => {
+    setAutoCompleting(true);
+    setAutoCompleteResult(null);
+    try {
+      const res = await fetch('/api/auto_complete_graph', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setAutoCompleteResult(data);
+    } catch {
+      setAutoCompleteResult({ error: 'Failed to auto-complete graph.' });
+    }
+    setAutoCompleting(false);
+  };
+  const acceptAutoComplete = () => {
+    if (!autoCompleteResult || !autoCompleteResult.nodes) return;
+    setNodes(autoCompleteResult.nodes);
+    setEdges(autoCompleteResult.edges);
+    setAutoCompleteResult(null);
+  };
+  const rejectAutoComplete = () => setAutoCompleteResult(null);
 
-  // Copy/paste
+  // Smart connect (AI): auto-connect unconnected nodes
+  const smartConnect = async () => {
+    setSmartConnecting(true);
+    setSmartConnectResult(null);
+    try {
+      const res = await fetch('/api/smart_connect', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setSmartConnectResult(data);
+    } catch {
+      setSmartConnectResult({ error: 'Failed to smart connect.' });
+    }
+    setSmartConnecting(false);
+  };
+  const acceptSmartConnect = () => {
+    if (!smartConnectResult || !smartConnectResult.edges) return;
+    setEdges(smartConnectResult.edges);
+    setSmartConnectResult(null);
+  };
+  const rejectSmartConnect = () => setSmartConnectResult(null);
+
+  // One-click optimize (AI): optimize workflow
+  const optimizeGraph = async () => {
+    setOptimizing(true);
+    setOptimizeResult(null);
+    try {
+      const res = await fetch('/api/optimize_graph', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setOptimizeResult(data);
+    } catch {
+      setOptimizeResult({ error: 'Failed to optimize graph.' });
+    }
+    setOptimizing(false);
+  };
+  const acceptOptimize = () => {
+    if (!optimizeResult || !optimizeResult.nodes) return;
+    setNodes(optimizeResult.nodes);
+    setEdges(optimizeResult.edges);
+    setOptimizeResult(null);
+  };
+  const rejectOptimize = () => setOptimizeResult(null);
+
+  useEffect(() => {
+    socket.current = io('http://localhost:4000');
+    socket.current.on('graph', ({ nodes: n, edges: e }) => {
+      setNodes(n.length ? n : [{ id: '1', type: 'input', data: { label: 'Start' }, position: { x: 0, y: 50 } }]);
+      setEdges(e);
+    });
+    return () => { socket.current && socket.current.disconnect(); };
+  }, []);
+
+  // Sync graph changes
+  useEffect(() => {
+    if (socket.current) {
+      socket.current.emit('update_graph', { nodes, edges });
+    }
+    // eslint-disable-next-line
+  }, [nodes, edges]);
+
+  // Keyboard shortcuts: delete node, run graph
   useEffect(() => {
     const handler = (e) => {
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'c' && selectedNodes.length) {
-        setClipboard(nodes.filter(n => selectedNodes.includes(n.id)));
+      if (e.key === 'Delete' && selectedNode && selectedNode.id !== '1') {
+        setShowDelete(true);
       }
-      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'v' && clipboard) {
-        // Paste nodes with new ids/positions
-        const maxId = Math.max(...nodes.map(n => parseInt(n.id, 10) || 1));
-        const pasted = clipboard.map((n, i) => ({
-          ...n,
-          id: (maxId + i + 1).toString(),
-          position: { x: n.position.x + 40, y: n.position.y + 40 }
-        }));
-        setNodes(nds => [...nds, ...pasted]);
-      }
-      // Group/Ungroup
-      if (e.key.toLowerCase() === 'g' && selectedNodes.length > 1) {
-        const groupId = 'group-' + Date.now();
-        setGroups(gs => [...gs, { id: groupId, nodeIds: selectedNodes }]);
-      }
-      if (e.key.toLowerCase() === 'u' && selectedNodes.length) {
-        setGroups(gs => gs.filter(g => !g.nodeIds.some(id => selectedNodes.includes(id))));
+      if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+        runGraph();
       }
     };
     window.addEventListener('keydown', handler);
     return () => window.removeEventListener('keydown', handler);
-  }, [selectedNodes, clipboard, nodes]);
+    // eslint-disable-next-line
+  }, [selectedNode, nodes, edges]);
 
-  // Node locking
-  const toggleLockNode = (id) => {
-    setLockedNodes(locked => locked.includes(id) ? locked.filter(l=>l!==id) : [...locked, id]);
+  const addPluginNode = () => {
+    if (!selectedPlugin) return;
+    const id = (nodes.length + 1).toString();
+    setNodes(nds => {
+      const newNodes = [...nds, {
+        id,
+        data: { label: selectedPlugin, args },
+        position: { x: 100 + Math.random() * 200, y: 100 + Math.random() * 200 }
+      }];
+      if (socket.current) socket.current.emit('update_graph', { nodes: newNodes, edges });
+      return newNodes;
+    });
+    setSelectedPlugin('');
+    setArgs('{}');
   };
-  // Collapsible groups
-  const toggleCollapseGroup = (gid) => {
-    setCollapsedGroups(cg => cg.includes(gid) ? cg.filter(g=>g!==gid) : [...cg, gid]);
-  };
-  // Node notes
-  const openNote = (id) => {
-    const note = prompt('Edit note for node:', nodeNotes[id] || '');
-    if (note !== null) setNodeNotes(nn => ({...nn, [id]: note}));
-  };
-  // Workflow validation: warn if any node (except Start) has no incoming edge
-  useEffect(() => {
-    const nodeIds = nodes.map(n=>n.id).filter(id=>id!=='1');
-    const targets = edges.map(e=>e.target);
-    const unconnected = nodeIds.filter(id=>!targets.includes(id));
-    if (unconnected.length) {
-      setValidationWarning(`Warning: Node(s) ${unconnected.join(', ')} not connected!`);
+
+  const onConnect = useCallback((params) => setEdges(eds => addEdge({ ...params, animated: true, style: { stroke: '#1976d2' } }, eds)), [setEdges]);
+
+  // Multi-select: shift+click
+  const handleNodeClick = (evt, node) => {
+    if (evt.shiftKey) {
+      setSelectedNodes(sel => sel.includes(node.id) ? sel.filter(id => id !== node.id) : [...sel, node.id]);
     } else {
-      setValidationWarning('');
+      setSelectedNode(node);
+      setSelectedNodes([node.id]);
+      setArgs(node.data.args || '{}');
     }
-  }, [nodes, edges]);
+  };
 
-  // Advanced validation: cycle detection, required args
+  // Undo/redo
   useEffect(() => {
-    // Cycle detection
-    const graph = {};
-    nodes.forEach(n => { graph[n.id] = []; });
-    edges.forEach(e => { graph[e.source].push(e.target); });
-    let hasCycle = false;
-    const visited = {}, recStack = {};
-    function dfs(v) {
-      visited[v] = true; recStack[v] = true;
-      for (const n of graph[v]) {
-        if (!visited[n] && dfs(n)) return true;
-        else if (recStack[n]) return true;
-      }
-      recStack[v] = false; return false;
-    }
-    for (const n of nodes.map(n=>n.id)) {
-      if (!visited[n] && dfs(n)) { hasCycle = true; break; }
-    }
-    // Required args check (simple: must be non-empty JSON)
-    const missingArgs = nodes.filter(n => n.id !== '1' && (!n.data.args || n.data.args.trim() === '{}' || n.data.args.trim() === ''));
-    let msg = '';
-    if (hasCycle) msg += 'Error: Graph has a cycle! ';
-    if (missingArgs.length) msg += `Node(s) missing args: ${missingArgs.map(n=>n.data.label).join(', ')}`;
-    setAdvValidation(msg);
+    setUndoStack([]);
+    setRedoStack([]);
+  }, []);
+  useEffect(() => {
+    setUndoStack(stack => [...stack, { nodes, edges }]);
+    // eslint-disable-next-line
   }, [nodes, edges]);
+  const undo = () => {
+    setUndoStack(stack => {
+      if (stack.length < 2) return stack;
+      const prev = stack[stack.length - 2];
+      setRedoStack(rstack => [stack[stack.length - 1], ...rstack]);
+      setNodes(prev.nodes);
+      setEdges(prev.edges);
+      return stack.slice(0, -1);
+    });
+  };
+  const redo = () => {
+    setRedoStack(rstack => {
+      if (!rstack.length) return rstack;
+      const next = rstack[0];
+      setNodes(next.nodes);
+      setEdges(next.edges);
+      setUndoStack(stack => [...stack, next]);
+      return rstack.slice(1);
+    });
+  };
+  useEffect(() => {
+    const handler = (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'z') undo();
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'y') redo();
+    };
+    window.addEventListener('keydown', handler);
+    return () => window.removeEventListener('keydown', handler);
+  }, [undoStack, redoStack]);
+
+  // Node color coding
+  function getNodeColor(label) {
+    if (!label) return PLUGIN_COLORS.default;
+    if (label.startsWith('quantum')) return PLUGIN_COLORS.quantum;
+    if (label.startsWith('ai') || label === 'summarizer') return PLUGIN_COLORS.ai;
+    if (label.endsWith('api') || label.endsWith('API')) return PLUGIN_COLORS.api;
+    return PLUGIN_COLORS.default;
+  }
+
+  function getNodeIcon(label) {
+    if (!label) return <FaPuzzlePiece style={{color:'#aaa'}}/>;
+    if (label.startsWith('quantum')) return <FaAtom style={{color:'#8e24aa'}}/>;
+    if (label.startsWith('ai') || label === 'summarizer') return <FaRobot style={{color:'#0288d1'}}/>;
+    if (label.endsWith('api') || label.endsWith('API')) return <FaPlug style={{color:'#fbc02d'}}/>;
+    return <FaPuzzlePiece style={{color:'#aaa'}}/>;
+  }
+
+  // Insert workflow template
+  const insertTemplate = (tpl) => {
+    setNodes(tpl.nodes);
+    setEdges(tpl.edges);
+    setLiveResult(null);
+    setNodeResults({});
+  };
+
+  // Node config popup
+  const saveNodeConfig = () => {
+    setNodes(nds => {
+      const newNodes = nds.map(n => n.id === selectedNode.id ? { ...n, data: { ...n.data, args } } : n);
+      if (socket.current) socket.current.emit('update_graph', { nodes: newNodes, edges });
+      // Save version
+      setNodeVersions(vers => ({
+        ...vers,
+        [selectedNode.id]: [ ...(vers[selectedNode.id]||[]), { args, time: Date.now() } ]
+      }));
+      return newNodes;
+    });
+    setSelectedNode(null);
+  };
+  const deleteNode = () => {
+    setNodes(nds => {
+      const newNodes = nds.filter(n => n.id !== selectedNode.id);
+      const newEdges = edges.filter(e => e.source !== selectedNode.id && e.target !== selectedNode.id);
+      if (socket.current) socket.current.emit('update_graph', { nodes: newNodes, edges: newEdges });
+      setEdges(newEdges);
+      return newNodes;
+    });
+    setSelectedNode(null);
+    setShowDelete(false);
+  };
+
+  // Drag-to-reorder: handled by ReactFlow (position updates)
+  const onNodeDragStop = (evt, node) => {
+    setNodes(nds => nds.map(n => n.id === node.id ? { ...n, position: node.position } : n));
+  };
+
+  // Graph-to-chain execution
+  const runGraph = async () => {
+    setExecuting(true);
+    setLiveResult(null);
+    setNodeResults({});
+    // Topological sort (simple): assume edges are parent->child
+    const nodeMap = Object.fromEntries(nodes.map(n => [n.id, n]));
+    const chain = [];
+    const visited = new Set();
+    function visit(id) {
+      if (visited.has(id)) return;
+      visited.add(id);
+      edges.filter(e => e.source === id).forEach(e => visit(e.target));
+      if (id !== '1') { // skip Start node
+        const n = nodeMap[id];
+        chain.push({ tool: n.data.label, args: JSON.parse(n.data.args || '{}'), nodeId: id });
+      }
+    }
+    visit('1');
+    chain.reverse();
+    const res = await fetch('/api/run_plugin_chain', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chain })
+    }).then(r => r.json());
+    setLiveResult(res.results);
+    // Map results to node ids
+    const resultMap = {};
+    if (res.results && Array.isArray(res.results)) {
+      res.results.forEach((r, i) => {
+        const nodeId = chain[i]?.nodeId;
+        if (nodeId) resultMap[nodeId] = r.result;
+      });
+    }
+    setNodeResults(resultMap);
+    setNodes(nds => nds.map(n => n.id in resultMap ? { ...n, data: { ...n.data, result: resultMap[n.id] } } : { ...n, data: { ...n.data, result: undefined } }));
+    // Save logs
+    setNodeLogs(logs => {
+      const newLogs = {...logs};
+      Object.entries(resultMap).forEach(([id, res]) => {
+        if (!newLogs[id]) newLogs[id] = [];
+        newLogs[id].push({ result: res, time: Date.now() });
+      });
+      return newLogs;
+    });
+    setExecuting(false);
+  };
+
+  // Per-node execution trigger
+  const runNode = async (nodeId) => {
+    setTriggeringNode(nodeId);
+    // Find all upstream nodes (simple BFS)
+    const upstream = new Set();
+    function collectUpstream(id) {
+      edges.filter(e => e.target === id).forEach(e => {
+        if (!upstream.has(e.source)) {
+          upstream.add(e.source);
+          collectUpstream(e.source);
+        }
+      });
+    }
+    collectUpstream(nodeId);
+    const nodeMap = Object.fromEntries(nodes.map(n => [n.id, n]));
+    const chain = [...upstream].map(id => nodeMap[id]).concat([nodeMap[nodeId]])
+      .filter(Boolean)
+      .filter(n => n.id !== '1')
+      .map(n => ({ tool: n.data.label, args: JSON.parse(n.data.args || '{}'), nodeId: n.id }));
+    const res = await fetch('/api/run_plugin_chain', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chain })
+    }).then(r => r.json());
+    // Map results to node ids
+    const resultMap = {};
+    if (res.results && Array.isArray(res.results)) {
+      res.results.forEach((r, i) => {
+        const nodeId = chain[i]?.nodeId;
+        if (nodeId) resultMap[nodeId] = r.result;
+      });
+    }
+    setNodeResults(r => ({...r, ...resultMap}));
+    setNodes(nds => nds.map(n => n.id in resultMap ? { ...n, data: { ...n.data, result: resultMap[n.id] } } : n));
+    setNodeLogs(logs => {
+      const newLogs = {...logs};
+      Object.entries(resultMap).forEach(([id, res]) => {
+        if (!newLogs[id]) newLogs[id] = [];
+        newLogs[id].push({ result: res, time: Date.now() });
+      });
+      return newLogs;
+    });
+    setTriggeringNode(null);
+  };
+
+  // AI-powered graph suggestion
+  const suggestNextNode = async () => {
+    setAiSuggesting(true);
+    setAiSuggestion(null);
+    try {
+      const res = await fetch('/api/suggest_next_node', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setAiSuggestion(data.suggestion);
+    } catch (e) {
+      setAiSuggestion({ error: 'Failed to get suggestion from backend.' });
+    }
+    setAiSuggesting(false);
+  };
+  const addAiSuggestion = () => {
+    if (!aiSuggestion || !aiSuggestion.label) return;
+    const id = (nodes.length + 1).toString();
+    setNodes(nds => [...nds, {
+      id,
+      data: { label: aiSuggestion.label, args: JSON.stringify(aiSuggestion.args||{}) },
+      position: { x: 120 + Math.random() * 200, y: 120 + Math.random() * 200 },
+      trigger: aiSuggestion.trigger || null
+    }]);
+    setAiSuggestion(null);
+  };
+
+  // Auto-complete graph (AI): suggest and add multiple nodes/edges
+  const autoCompleteGraph = async () => {
+    setAutoCompleting(true);
+    setAutoCompleteResult(null);
+    try {
+      const res = await fetch('/api/auto_complete_graph', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setAutoCompleteResult(data);
+    } catch {
+      setAutoCompleteResult({ error: 'Failed to auto-complete graph.' });
+    }
+    setAutoCompleting(false);
+  };
+  const acceptAutoComplete = () => {
+    if (!autoCompleteResult || !autoCompleteResult.nodes) return;
+    setNodes(autoCompleteResult.nodes);
+    setEdges(autoCompleteResult.edges);
+    setAutoCompleteResult(null);
+  };
+  const rejectAutoComplete = () => setAutoCompleteResult(null);
+
+  // Smart connect (AI): auto-connect unconnected nodes
+  const smartConnect = async () => {
+    setSmartConnecting(true);
+    setSmartConnectResult(null);
+    try {
+      const res = await fetch('/api/smart_connect', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setSmartConnectResult(data);
+    } catch {
+      setSmartConnectResult({ error: 'Failed to smart connect.' });
+    }
+    setSmartConnecting(false);
+  };
+  const acceptSmartConnect = () => {
+    if (!smartConnectResult || !smartConnectResult.edges) return;
+    setEdges(smartConnectResult.edges);
+    setSmartConnectResult(null);
+  };
+  const rejectSmartConnect = () => setSmartConnectResult(null);
+
+  // One-click optimize (AI): optimize workflow
+  const optimizeGraph = async () => {
+    setOptimizing(true);
+    setOptimizeResult(null);
+    try {
+      const res = await fetch('/api/optimize_graph', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setOptimizeResult(data);
+    } catch {
+      setOptimizeResult({ error: 'Failed to optimize graph.' });
+    }
+    setOptimizing(false);
+  };
+  const acceptOptimize = () => {
+    if (!optimizeResult || !optimizeResult.nodes) return;
+    setNodes(optimizeResult.nodes);
+    setEdges(optimizeResult.edges);
+    setOptimizeResult(null);
+  };
+  const rejectOptimize = () => setOptimizeResult(null);
+
+  // Node color coding
+  function getNodeColor(label) {
+    if (!label) return PLUGIN_COLORS.default;
+    if (label.startsWith('quantum')) return PLUGIN_COLORS.quantum;
+    if (label.startsWith('ai') || label === 'summarizer') return PLUGIN_COLORS.ai;
+    if (label.endsWith('api') || label.endsWith('API')) return PLUGIN_COLORS.api;
+    return PLUGIN_COLORS.default;
+  }
+
+  function getNodeIcon(label) {
+    if (!label) return <FaPuzzlePiece style={{color:'#aaa'}}/>;
+    if (label.startsWith('quantum')) return <FaAtom style={{color:'#8e24aa'}}/>;
+    if (label.startsWith('ai') || label === 'summarizer') return <FaRobot style={{color:'#0288d1'}}/>;
+    if (label.endsWith('api') || label.endsWith('API')) return <FaPlug style={{color:'#fbc02d'}}/>;
+    return <FaPuzzlePiece style={{color:'#aaa'}}/>;
+  }
+
+  // Insert workflow template
+  const insertTemplate = (tpl) => {
+    setNodes(tpl.nodes);
+    setEdges(tpl.edges);
+    setLiveResult(null);
+    setNodeResults({});
+  };
+
+  // Node config popup
+  const saveNodeConfig = () => {
+    setNodes(nds => {
+      const newNodes = nds.map(n => n.id === selectedNode.id ? { ...n, data: { ...n.data, args } } : n);
+      if (socket.current) socket.current.emit('update_graph', { nodes: newNodes, edges });
+      // Save version
+      setNodeVersions(vers => ({
+        ...vers,
+        [selectedNode.id]: [ ...(vers[selectedNode.id]||[]), { args, time: Date.now() } ]
+      }));
+      return newNodes;
+    });
+    setSelectedNode(null);
+  };
+  const deleteNode = () => {
+    setNodes(nds => {
+      const newNodes = nds.filter(n => n.id !== selectedNode.id);
+      const newEdges = edges.filter(e => e.source !== selectedNode.id && e.target !== selectedNode.id);
+      if (socket.current) socket.current.emit('update_graph', { nodes: newNodes, edges: newEdges });
+      setEdges(newEdges);
+      return newNodes;
+    });
+    setSelectedNode(null);
+    setShowDelete(false);
+  };
+
+  // Drag-to-reorder: handled by ReactFlow (position updates)
+  const onNodeDragStop = (evt, node) => {
+    setNodes(nds => nds.map(n => n.id === node.id ? { ...n, position: node.position } : n));
+  };
+
+  // Graph-to-chain execution
+  const runGraph = async () => {
+    setExecuting(true);
+    setLiveResult(null);
+    setNodeResults({});
+    // Topological sort (simple): assume edges are parent->child
+    const nodeMap = Object.fromEntries(nodes.map(n => [n.id, n]));
+    const chain = [];
+    const visited = new Set();
+    function visit(id) {
+      if (visited.has(id)) return;
+      visited.add(id);
+      edges.filter(e => e.source === id).forEach(e => visit(e.target));
+      if (id !== '1') { // skip Start node
+        const n = nodeMap[id];
+        chain.push({ tool: n.data.label, args: JSON.parse(n.data.args || '{}'), nodeId: id });
+      }
+    }
+    visit('1');
+    chain.reverse();
+    const res = await fetch('/api/run_plugin_chain', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chain })
+    }).then(r => r.json());
+    setLiveResult(res.results);
+    // Map results to node ids
+    const resultMap = {};
+    if (res.results && Array.isArray(res.results)) {
+      res.results.forEach((r, i) => {
+        const nodeId = chain[i]?.nodeId;
+        if (nodeId) resultMap[nodeId] = r.result;
+      });
+    }
+    setNodeResults(resultMap);
+    setNodes(nds => nds.map(n => n.id in resultMap ? { ...n, data: { ...n.data, result: resultMap[n.id] } } : { ...n, data: { ...n.data, result: undefined } }));
+    // Save logs
+    setNodeLogs(logs => {
+      const newLogs = {...logs};
+      Object.entries(resultMap).forEach(([id, res]) => {
+        if (!newLogs[id]) newLogs[id] = [];
+        newLogs[id].push({ result: res, time: Date.now() });
+      });
+      return newLogs;
+    });
+    setExecuting(false);
+  };
+
+  // Per-node execution trigger
+  const runNode = async (nodeId) => {
+    setTriggeringNode(nodeId);
+    // Find all upstream nodes (simple BFS)
+    const upstream = new Set();
+    function collectUpstream(id) {
+      edges.filter(e => e.target === id).forEach(e => {
+        if (!upstream.has(e.source)) {
+          upstream.add(e.source);
+          collectUpstream(e.source);
+        }
+      });
+    }
+    collectUpstream(nodeId);
+    const nodeMap = Object.fromEntries(nodes.map(n => [n.id, n]));
+    const chain = [...upstream].map(id => nodeMap[id]).concat([nodeMap[nodeId]])
+      .filter(Boolean)
+      .filter(n => n.id !== '1')
+      .map(n => ({ tool: n.data.label, args: JSON.parse(n.data.args || '{}'), nodeId: n.id }));
+    const res = await fetch('/api/run_plugin_chain', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ chain })
+    }).then(r => r.json());
+    // Map results to node ids
+    const resultMap = {};
+    if (res.results && Array.isArray(res.results)) {
+      res.results.forEach((r, i) => {
+        const nodeId = chain[i]?.nodeId;
+        if (nodeId) resultMap[nodeId] = r.result;
+      });
+    }
+    setNodeResults(r => ({...r, ...resultMap}));
+    setNodes(nds => nds.map(n => n.id in resultMap ? { ...n, data: { ...n.data, result: resultMap[n.id] } } : n));
+    setNodeLogs(logs => {
+      const newLogs = {...logs};
+      Object.entries(resultMap).forEach(([id, res]) => {
+        if (!newLogs[id]) newLogs[id] = [];
+        newLogs[id].push({ result: res, time: Date.now() });
+      });
+      return newLogs;
+    });
+    setTriggeringNode(null);
+  };
+
+  // AI-powered graph suggestion
+  const suggestNextNode = async () => {
+    setAiSuggesting(true);
+    setAiSuggestion(null);
+    try {
+      const res = await fetch('/api/suggest_next_node', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setAiSuggestion(data.suggestion);
+    } catch (e) {
+      setAiSuggestion({ error: 'Failed to get suggestion from backend.' });
+    }
+    setAiSuggesting(false);
+  };
+  const addAiSuggestion = () => {
+    if (!aiSuggestion || !aiSuggestion.label) return;
+    const id = (nodes.length + 1).toString();
+    setNodes(nds => [...nds, {
+      id,
+      data: { label: aiSuggestion.label, args: JSON.stringify(aiSuggestion.args||{}) },
+      position: { x: 120 + Math.random() * 200, y: 120 + Math.random() * 200 },
+      trigger: aiSuggestion.trigger || null
+    }]);
+    setAiSuggestion(null);
+  };
+
+  // Auto-complete graph (AI): suggest and add multiple nodes/edges
+  const autoCompleteGraph = async () => {
+    setAutoCompleting(true);
+    setAutoCompleteResult(null);
+    try {
+      const res = await fetch('/api/auto_complete_graph', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setAutoCompleteResult(data);
+    } catch {
+      setAutoCompleteResult({ error: 'Failed to auto-complete graph.' });
+    }
+    setAutoCompleting(false);
+  };
+  const acceptAutoComplete = () => {
+    if (!autoCompleteResult || !autoCompleteResult.nodes) return;
+    setNodes(autoCompleteResult.nodes);
+    setEdges(autoCompleteResult.edges);
+    setAutoCompleteResult(null);
+  };
+  const rejectAutoComplete = () => setAutoCompleteResult(null);
+
+  // Smart connect (AI): auto-connect unconnected nodes
+  const smartConnect = async () => {
+    setSmartConnecting(true);
+    setSmartConnectResult(null);
+    try {
+      const res = await fetch('/api/smart_connect', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setSmartConnectResult(data);
+    } catch {
+      setSmartConnectResult({ error: 'Failed to smart connect.' });
+    }
+    setSmartConnecting(false);
+  };
+  const acceptSmartConnect = () => {
+    if (!smartConnectResult || !smartConnectResult.edges) return;
+    setEdges(smartConnectResult.edges);
+    setSmartConnectResult(null);
+  };
+  const rejectSmartConnect = () => setSmartConnectResult(null);
+
+  // One-click optimize (AI): optimize workflow
+  const optimizeGraph = async () => {
+    setOptimizing(true);
+    setOptimizeResult(null);
+    try {
+      const res = await fetch('/api/optimize_graph', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nodes, edges })
+      });
+      if (!res.ok) throw new Error('Backend error');
+      const data = await res.json();
+      setOptimizeResult(data);
+    } catch {
+      setOptimizeResult({ error: 'Failed to optimize graph.' });
+    }
+    setOptimizing(false);
+  };
+  const acceptOptimize = () => {
+    if (!optimizeResult || !optimizeResult.nodes) return;
+    setNodes(optimizeResult.nodes);
+    setEdges(optimizeResult.edges);
+    setOptimizeResult(null);
+  };
+  const rejectOptimize = () => setOptimizeResult(null);
 
   return (
     <div style={{height: 600, border: '1px solid #ccc', borderRadius: 8, marginTop: 40, position:'relative'}}>
@@ -450,6 +1079,12 @@ function PluginGraphBuilder({ plugins }) {
           {WORKFLOW_TEMPLATES.map(t => <option key={t.name} value={t.name}>{t.name}</option>)}
         </select>
         {executing && <span style={{marginLeft:10}}>Executing...</span>}
+        <button style={{marginLeft:10}} onClick={openMarketplace}><FaStore/> Marketplace</button>
+        {/* AI-powered suggestion */}
+        <button style={{marginLeft:10}} onClick={suggestNextNode} disabled={aiSuggesting}>{aiSuggesting?'Suggesting...':'Suggest Next Node (AI)'}</button>
+        <button style={{marginLeft:10}} onClick={autoCompleteGraph} disabled={autoCompleting}>{autoCompleting?'Auto-completing...':'Auto-complete Graph'}</button>
+        <button style={{marginLeft:10}} onClick={smartConnect} disabled={smartConnecting}>{smartConnecting?'Connecting...':'Smart Connect'}</button>
+        <button style={{marginLeft:10}} onClick={optimizeGraph} disabled={optimizing}>{optimizing?'Optimizing...':'One-click Optimize'}</button>
       </div>
       {pluginInfo && (
         <div style={{position:'absolute', left:180, top:50, background:'#fff', border:'1px solid #1976d2', borderRadius:8, padding:10, zIndex:20, minWidth:220, boxShadow:'0 2px 12px #90caf9'}}>
@@ -595,6 +1230,140 @@ function PluginGraphBuilder({ plugins }) {
               <button type="submit">Send</button>
             </form>
             <button style={{marginTop:10}} onClick={()=>setShowComments(null)}>Close</button>
+          </div>
+        </div>
+      )}
+      {/* Node permissions */}
+      {showPerms && (
+        <div style={{position:'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.2)', zIndex:200}}>
+          <div style={{position:'absolute', top:'30%', left:'30%', background:'#fff', border:'2px solid #1976d2', borderRadius:10, padding:30, minWidth:320}}>
+            <b>Permissions for node {showPerms}</b>
+            <form onSubmit={e=>{e.preventDefault(); savePerms(showPerms, e.target.owner.value, e.target.editors.value.split(',').map(s=>s.trim()));}}>
+              <div style={{marginTop:10}}>
+                Owner: <input name="owner" defaultValue={nodePermissions[showPerms]?.owner||userName} />
+              </div>
+              <div style={{marginTop:10}}>
+                Editors (comma separated): <input name="editors" defaultValue={(nodePermissions[showPerms]?.editors||[]).join(', ')} />
+              </div>
+              <button style={{marginTop:10}} type="submit">Save</button>
+              <button style={{marginLeft:10}} onClick={()=>setShowPerms(null)}>Cancel</button>
+            </form>
+          </div>
+        </div>
+      )}
+      {/* Node execution logs */}
+      {showLogs && (
+        <div style={{position:'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.2)', zIndex:200}}>
+          <div style={{position:'absolute', top:'30%', left:'30%', background:'#fff', border:'2px solid #1976d2', borderRadius:10, padding:30, minWidth:320}}>
+            <b>Execution logs for node {showLogs}</b>
+            <ul style={{marginTop:10, maxHeight:180, overflowY:'auto'}}>
+              {(nodeLogs[showLogs]||[]).map((l,i)=>(
+                <li key={i} style={{marginBottom:6}}>
+                  <span style={{fontFamily:'monospace', fontSize:13}}>{JSON.stringify(l.result)}</span>
+                  <span style={{marginLeft:10, fontSize:11, color:'#888'}}>{new Date(l.time).toLocaleString()}</span>
+                </li>
+              ))}
+            </ul>
+            <button style={{marginTop:10}} onClick={()=>setShowLogs(null)}>Close</button>
+          </div>
+        </div>
+      )}
+      {/* Plugin marketplace modal */}
+      {showMarketplace && (
+        <div style={{position:'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.2)', zIndex:300}}>
+          <div style={{position:'absolute', top:'20%', left:'25%', background:'#fff', border:'2px solid #1976d2', borderRadius:10, padding:30, minWidth:480, maxHeight:500, overflowY:'auto'}}>
+            <b>Plugin Marketplace</b>
+            <ul style={{marginTop:10}}>
+              {plugins.map(p => (
+                <li key={p.name} style={{marginBottom:10, display:'flex', alignItems:'center', gap:8}}>
+                  <span style={{fontWeight:'bold'}}>{p.name}</span>
+                  <span style={{fontSize:13, color:'#888'}}>{p.description}</span>
+                  <button style={{marginLeft:10}} onClick={()=>addPluginFromMarketplace(p)}>Add</button>
+                  <button style={{marginLeft:6}} onClick={()=>installPlugin(p)} disabled={pluginInstallStatus[p.name]==='installing' || pluginInstallStatus[p.name]==='installed'}>
+                    {pluginInstallStatus[p.name]==='installing'?'Installing...':pluginInstallStatus[p.name]==='installed'?'Installed':'Install'}
+                  </button>
+                  <button style={{marginLeft:6}} onClick={()=>upgradePlugin(p)} disabled={pluginInstallStatus[p.name]!=='installed'}>
+                    {pluginInstallStatus[p.name]==='upgrading'?'Upgrading...':'Upgrade'}
+                  </button>
+                </li>
+              ))}
+            </ul>
+            <button style={{marginTop:10}} onClick={()=>setShowMarketplace(false)}>Close</button>
+          </div>
+        </div>
+      )}
+      {/* AI suggestion modal */}
+      {aiSuggestion && (
+        <div style={{position:'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.2)', zIndex:400}}>
+          <div style={{position:'absolute', top:'30%', left:'30%', background:'#fff', border:'2px solid #1976d2', borderRadius:10, padding:30, minWidth:320}}>
+            <b>AI Suggestion</b>
+            {aiSuggestion.error ? (
+              <div style={{color:'#c00', marginTop:10}}>{aiSuggestion.error} <button onClick={()=>suggestNextNode(true)}>Retry</button></div>
+            ) : (
+              <div style={{marginTop:10}}>
+                <div><b>Label:</b> {aiSuggestion.label}</div>
+                <div><b>Args:</b> {JSON.stringify(aiSuggestion.args)}</div>
+                {aiSuggestion.trigger && <div><b>Trigger:</b> {aiSuggestion.trigger}</div>}
+                <button style={{marginTop:10}} onClick={addAiSuggestion}>Add to Graph</button>
+              </div>
+            )}
+            <button style={{marginTop:10, marginLeft:10}} onClick={()=>setAiSuggestion(null)}>Close</button>
+          </div>
+        </div>
+      )}
+      {/* Auto-complete modal */}
+      {autoCompleteResult && (
+        <div style={{position:'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.2)', zIndex:401}}>
+          <div style={{position:'absolute', top:'30%', left:'30%', background:'#fff', border:'2px solid #1976d2', borderRadius:10, padding:30, minWidth:340}}>
+            <b>AI Auto-complete</b>
+            {autoCompleteResult.error ? (
+              <div style={{color:'#c00', marginTop:10}}>{autoCompleteResult.error}</div>
+            ) : (
+              <div style={{marginTop:10}}>
+                <div><b>Nodes:</b> {autoCompleteResult.nodes?.length}</div>
+                <div><b>Edges:</b> {autoCompleteResult.edges?.length}</div>
+                <button style={{marginTop:10}} onClick={acceptAutoComplete}>Accept</button>
+                <button style={{marginLeft:10}} onClick={rejectAutoComplete}>Reject</button>
+              </div>
+            )}
+            <button style={{marginTop:10, marginLeft:10}} onClick={()=>setAutoCompleteResult(null)}>Close</button>
+          </div>
+        </div>
+      )}
+      {/* Smart connect modal */}
+      {smartConnectResult && (
+        <div style={{position:'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.2)', zIndex:402}}>
+          <div style={{position:'absolute', top:'30%', left:'30%', background:'#fff', border:'2px solid #1976d2', borderRadius:10, padding:30, minWidth:340}}>
+            <b>AI Smart Connect</b>
+            {smartConnectResult.error ? (
+              <div style={{color:'#c00', marginTop:10}}>{smartConnectResult.error}</div>
+            ) : (
+              <div style={{marginTop:10}}>
+                <div><b>Edges:</b> {smartConnectResult.edges?.length}</div>
+                <button style={{marginTop:10}} onClick={acceptSmartConnect}>Accept</button>
+                <button style={{marginLeft:10}} onClick={rejectSmartConnect}>Reject</button>
+              </div>
+            )}
+            <button style={{marginTop:10, marginLeft:10}} onClick={()=>setSmartConnectResult(null)}>Close</button>
+          </div>
+        </div>
+      )}
+      {/* Optimize modal */}
+      {optimizeResult && (
+        <div style={{position:'fixed', top:0, left:0, width:'100vw', height:'100vh', background:'rgba(0,0,0,0.2)', zIndex:403}}>
+          <div style={{position:'absolute', top:'30%', left:'30%', background:'#fff', border:'2px solid #1976d2', borderRadius:10, padding:30, minWidth:340}}>
+            <b>AI Workflow Optimization</b>
+            {optimizeResult.error ? (
+              <div style={{color:'#c00', marginTop:10}}>{optimizeResult.error}</div>
+            ) : (
+              <div style={{marginTop:10}}>
+                <div><b>Nodes:</b> {optimizeResult.nodes?.length}</div>
+                <div><b>Edges:</b> {optimizeResult.edges?.length}</div>
+                <button style={{marginTop:10}} onClick={acceptOptimize}>Accept</button>
+                <button style={{marginLeft:10}} onClick={rejectOptimize}>Reject</button>
+              </div>
+            )}
+            <button style={{marginTop:10, marginLeft:10}} onClick={()=>setOptimizeResult(null)}>Close</button>
           </div>
         </div>
       )}
