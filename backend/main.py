@@ -31,13 +31,17 @@ doc_index = {}
 
 # --- Utility: Load all docs into memory (for demo) ---
 def load_docs():
-    docs_root = '/workspaces/knowledge-base/resources/documentation/docs'
-    for root, dirs, files in os.walk(docs_root):
-        for file in files:
-            if file.endswith('.md'):
-                path = os.path.join(root, file)
-                with open(path, 'r', encoding='utf-8') as f:
-                    doc_index[path] = f.read()
+    docs_roots = [
+        '/workspaces/knowledge-base/resources/documentation/docs',
+        '/workspaces/knowledge-base/knowledge',
+    ]
+    for docs_root in docs_roots:
+        for root, dirs, files in os.walk(docs_root):
+            for file in files:
+                if file.endswith('.md'):
+                    path = os.path.join(root, file)
+                    with open(path, 'r', encoding='utf-8') as f:
+                        doc_index[path] = f.read()
 load_docs()
 
 # --- Endpoints ---
