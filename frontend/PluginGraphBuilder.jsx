@@ -79,6 +79,7 @@ function PluginGraphBuilder({ plugins }) {
   const [aiSuggesting, setAiSuggesting] = useState(false);
   const [aiSuggestion, setAiSuggestion] = useState(null);
   const [pluginInstallStatus, setPluginInstallStatus] = useState({}); // {pluginName: 'installed'|'installing'|'upgrading'}
+  // --- Automation/AI state ---
   const [autoCompleting, setAutoCompleting] = useState(false);
   const [autoCompleteResult, setAutoCompleteResult] = useState(null);
   const [smartConnecting, setSmartConnecting] = useState(false);
@@ -334,7 +335,7 @@ function PluginGraphBuilder({ plugins }) {
     setTriggeringNode(null);
   };
 
-  // AI-powered graph suggestion (real backend, retry)
+  // --- AI-powered graph suggestion (real backend, retry) ---
   const suggestNextNode = async (retry = false) => {
     setAiSuggesting(true);
     setAiSuggestion(null);
@@ -363,8 +364,7 @@ function PluginGraphBuilder({ plugins }) {
     }]);
     setAiSuggestion(null);
   };
-
-  // Auto-complete graph (AI): suggest and add multiple nodes/edges
+  // --- Auto-complete graph (AI): suggest and add multiple nodes/edges ---
   const autoCompleteGraph = async () => {
     setAutoCompleting(true);
     setAutoCompleteResult(null);
@@ -389,8 +389,7 @@ function PluginGraphBuilder({ plugins }) {
     setAutoCompleteResult(null);
   };
   const rejectAutoComplete = () => setAutoCompleteResult(null);
-
-  // Smart connect (AI): auto-connect unconnected nodes
+  // --- Smart connect (AI): auto-connect unconnected nodes ---
   const smartConnect = async () => {
     setSmartConnecting(true);
     setSmartConnectResult(null);
@@ -414,8 +413,7 @@ function PluginGraphBuilder({ plugins }) {
     setSmartConnectResult(null);
   };
   const rejectSmartConnect = () => setSmartConnectResult(null);
-
-  // One-click optimize (AI): optimize workflow
+  // --- One-click optimize (AI): optimize workflow ---
   const optimizeGraph = async () => {
     setOptimizing(true);
     setOptimizeResult(null);
@@ -689,263 +687,7 @@ function PluginGraphBuilder({ plugins }) {
     setTriggeringNode(null);
   };
 
-  // AI-powered graph suggestion
-  const suggestNextNode = async () => {
-    setAiSuggesting(true);
-    setAiSuggestion(null);
-    try {
-      const res = await fetch('/api/suggest_next_node', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nodes, edges })
-      });
-      if (!res.ok) throw new Error('Backend error');
-      const data = await res.json();
-      setAiSuggestion(data.suggestion);
-    } catch (e) {
-      setAiSuggestion({ error: 'Failed to get suggestion from backend.' });
-    }
-    setAiSuggesting(false);
-  };
-  const addAiSuggestion = () => {
-    if (!aiSuggestion || !aiSuggestion.label) return;
-    const id = (nodes.length + 1).toString();
-    setNodes(nds => [...nds, {
-      id,
-      data: { label: aiSuggestion.label, args: JSON.stringify(aiSuggestion.args||{}) },
-      position: { x: 120 + Math.random() * 200, y: 120 + Math.random() * 200 },
-      trigger: aiSuggestion.trigger || null
-    }]);
-    setAiSuggestion(null);
-  };
-
-  // Auto-complete graph (AI): suggest and add multiple nodes/edges
-  const autoCompleteGraph = async () => {
-    setAutoCompleting(true);
-    setAutoCompleteResult(null);
-    try {
-      const res = await fetch('/api/auto_complete_graph', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nodes, edges })
-      });
-      if (!res.ok) throw new Error('Backend error');
-      const data = await res.json();
-      setAutoCompleteResult(data);
-    } catch {
-      setAutoCompleteResult({ error: 'Failed to auto-complete graph.' });
-    }
-    setAutoCompleting(false);
-  };
-  const acceptAutoComplete = () => {
-    if (!autoCompleteResult || !autoCompleteResult.nodes) return;
-    setNodes(autoCompleteResult.nodes);
-    setEdges(autoCompleteResult.edges);
-    setAutoCompleteResult(null);
-  };
-  const rejectAutoComplete = () => setAutoCompleteResult(null);
-
-  // Smart connect (AI): auto-connect unconnected nodes
-  const smartConnect = async () => {
-    setSmartConnecting(true);
-    setSmartConnectResult(null);
-    try {
-      const res = await fetch('/api/smart_connect', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nodes, edges })
-      });
-      if (!res.ok) throw new Error('Backend error');
-      const data = await res.json();
-      setSmartConnectResult(data);
-    } catch {
-      setSmartConnectResult({ error: 'Failed to smart connect.' });
-    }
-    setSmartConnecting(false);
-  };
-  const acceptSmartConnect = () => {
-    if (!smartConnectResult || !smartConnectResult.edges) return;
-    setEdges(smartConnectResult.edges);
-    setSmartConnectResult(null);
-  };
-  const rejectSmartConnect = () => setSmartConnectResult(null);
-
-  // One-click optimize (AI): optimize workflow
-  const optimizeGraph = async () => {
-    setOptimizing(true);
-    setOptimizeResult(null);
-    try {
-      const res = await fetch('/api/optimize_graph', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nodes, edges })
-      });
-      if (!res.ok) throw new Error('Backend error');
-      const data = await res.json();
-      setOptimizeResult(data);
-    } catch {
-      setOptimizeResult({ error: 'Failed to optimize graph.' });
-    }
-    setOptimizing(false);
-  };
-  const acceptOptimize = () => {
-    if (!optimizeResult || !optimizeResult.nodes) return;
-    setNodes(optimizeResult.nodes);
-    setEdges(optimizeResult.edges);
-    setOptimizeResult(null);
-  };
-  const rejectOptimize = () => setOptimizeResult(null);
-
-  // Node color coding
-  function getNodeColor(label) {
-    if (!label) return PLUGIN_COLORS.default;
-    if (label.startsWith('quantum')) return PLUGIN_COLORS.quantum;
-    if (label.startsWith('ai') || label === 'summarizer') return PLUGIN_COLORS.ai;
-    if (label.endsWith('api') || label.endsWith('API')) return PLUGIN_COLORS.api;
-    return PLUGIN_COLORS.default;
-  }
-
-  function getNodeIcon(label) {
-    if (!label) return <FaPuzzlePiece style={{color:'#aaa'}}/>;
-    if (label.startsWith('quantum')) return <FaAtom style={{color:'#8e24aa'}}/>;
-    if (label.startsWith('ai') || label === 'summarizer') return <FaRobot style={{color:'#0288d1'}}/>;
-    if (label.endsWith('api') || label.endsWith('API')) return <FaPlug style={{color:'#fbc02d'}}/>;
-    return <FaPuzzlePiece style={{color:'#aaa'}}/>;
-  }
-
-  // Insert workflow template
-  const insertTemplate = (tpl) => {
-    setNodes(tpl.nodes);
-    setEdges(tpl.edges);
-    setLiveResult(null);
-    setNodeResults({});
-  };
-
-  // Node config popup
-  const saveNodeConfig = () => {
-    setNodes(nds => {
-      const newNodes = nds.map(n => n.id === selectedNode.id ? { ...n, data: { ...n.data, args } } : n);
-      if (socket.current) socket.current.emit('update_graph', { nodes: newNodes, edges });
-      // Save version
-      setNodeVersions(vers => ({
-        ...vers,
-        [selectedNode.id]: [ ...(vers[selectedNode.id]||[]), { args, time: Date.now() } ]
-      }));
-      return newNodes;
-    });
-    setSelectedNode(null);
-  };
-  const deleteNode = () => {
-    setNodes(nds => {
-      const newNodes = nds.filter(n => n.id !== selectedNode.id);
-      const newEdges = edges.filter(e => e.source !== selectedNode.id && e.target !== selectedNode.id);
-      if (socket.current) socket.current.emit('update_graph', { nodes: newNodes, edges: newEdges });
-      setEdges(newEdges);
-      return newNodes;
-    });
-    setSelectedNode(null);
-    setShowDelete(false);
-  };
-
-  // Drag-to-reorder: handled by ReactFlow (position updates)
-  const onNodeDragStop = (evt, node) => {
-    setNodes(nds => nds.map(n => n.id === node.id ? { ...n, position: node.position } : n));
-  };
-
-  // Graph-to-chain execution
-  const runGraph = async () => {
-    setExecuting(true);
-    setLiveResult(null);
-    setNodeResults({});
-    // Topological sort (simple): assume edges are parent->child
-    const nodeMap = Object.fromEntries(nodes.map(n => [n.id, n]));
-    const chain = [];
-    const visited = new Set();
-    function visit(id) {
-      if (visited.has(id)) return;
-      visited.add(id);
-      edges.filter(e => e.source === id).forEach(e => visit(e.target));
-      if (id !== '1') { // skip Start node
-        const n = nodeMap[id];
-        chain.push({ tool: n.data.label, args: JSON.parse(n.data.args || '{}'), nodeId: id });
-      }
-    }
-    visit('1');
-    chain.reverse();
-    const res = await fetch('/api/run_plugin_chain', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chain })
-    }).then(r => r.json());
-    setLiveResult(res.results);
-    // Map results to node ids
-    const resultMap = {};
-    if (res.results && Array.isArray(res.results)) {
-      res.results.forEach((r, i) => {
-        const nodeId = chain[i]?.nodeId;
-        if (nodeId) resultMap[nodeId] = r.result;
-      });
-    }
-    setNodeResults(resultMap);
-    setNodes(nds => nds.map(n => n.id in resultMap ? { ...n, data: { ...n.data, result: resultMap[n.id] } } : { ...n, data: { ...n.data, result: undefined } }));
-    // Save logs
-    setNodeLogs(logs => {
-      const newLogs = {...logs};
-      Object.entries(resultMap).forEach(([id, res]) => {
-        if (!newLogs[id]) newLogs[id] = [];
-        newLogs[id].push({ result: res, time: Date.now() });
-      });
-      return newLogs;
-    });
-    setExecuting(false);
-  };
-
-  // Per-node execution trigger
-  const runNode = async (nodeId) => {
-    setTriggeringNode(nodeId);
-    // Find all upstream nodes (simple BFS)
-    const upstream = new Set();
-    function collectUpstream(id) {
-      edges.filter(e => e.target === id).forEach(e => {
-        if (!upstream.has(e.source)) {
-          upstream.add(e.source);
-          collectUpstream(e.source);
-        }
-      });
-    }
-    collectUpstream(nodeId);
-    const nodeMap = Object.fromEntries(nodes.map(n => [n.id, n]));
-    const chain = [...upstream].map(id => nodeMap[id]).concat([nodeMap[nodeId]])
-      .filter(Boolean)
-      .filter(n => n.id !== '1')
-      .map(n => ({ tool: n.data.label, args: JSON.parse(n.data.args || '{}'), nodeId: n.id }));
-    const res = await fetch('/api/run_plugin_chain', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chain })
-    }).then(r => r.json());
-    // Map results to node ids
-    const resultMap = {};
-    if (res.results && Array.isArray(res.results)) {
-      res.results.forEach((r, i) => {
-        const nodeId = chain[i]?.nodeId;
-        if (nodeId) resultMap[nodeId] = r.result;
-      });
-    }
-    setNodeResults(r => ({...r, ...resultMap}));
-    setNodes(nds => nds.map(n => n.id in resultMap ? { ...n, data: { ...n.data, result: resultMap[n.id] } } : n));
-    setNodeLogs(logs => {
-      const newLogs = {...logs};
-      Object.entries(resultMap).forEach(([id, res]) => {
-        if (!newLogs[id]) newLogs[id] = [];
-        newLogs[id].push({ result: res, time: Date.now() });
-      });
-      return newLogs;
-    });
-    setTriggeringNode(null);
-  };
-
-  // AI-powered graph suggestion
+  // --- AI-powered graph suggestion ---
   const suggestNextNode = async () => {
     setAiSuggesting(true);
     setAiSuggestion(null);
