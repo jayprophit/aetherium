@@ -1,0 +1,13 @@
+# Jekyll Configuration
+
+# Site settings
+title: Knowledge Base
+description: Comprehensive knowledge base
+
+# Plugins
+plugins:
+  - jekyll-lunr-js-search
+
+# Search configuration
+lunr_search:
+  excludes: ["node_modules"]

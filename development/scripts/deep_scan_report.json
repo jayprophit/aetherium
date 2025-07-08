@@ -1,0 +1,1411 @@
+{
+  "scan_date": "2025-07-06T08:00:39.250490",
+  "summary": {
+    "duplicate_file_groups": 16,
+    "total_duplicate_files": 75,
+    "stub_files": 337,
+    "empty_directories": 20,
+    "similar_directory_groups": 127
+  },
+  "duplicates": {
+    "group_1": {
+      "hash_size_key": "de1ec59564cfeb67dde8b3e6916bf2ec_314",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\ci_cd\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\mlops\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\biology\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\cosmology\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\philosophy\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\psychology\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\movement\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\networking\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\perception\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\api\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platform\\deployment\\deployment\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platforms\\README.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platforms\\README.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platform\\deployment\\deployment\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\api\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\perception\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\networking\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\movement\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\psychology\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\philosophy\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\cosmology\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\biology\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\mlops\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\ci_cd\\README.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_2": {
+      "hash_size_key": "719e798ed760e9707a59abc3440480b3_323",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\contributing\\standards.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\standards.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\standards.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\contributing\\standards.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_3": {
+      "hash_size_key": "999c31da99831d872ca2c81e0b28316d_326",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\operations\\deployment.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\deployment.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\deployment.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\operations\\deployment.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_4": {
+      "hash_size_key": "d41d8cd98f00b204e9800998ecf8427e_0",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\__init__.py",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\build\\__init__.py",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\__init__.py",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\legacy\\__init__.py",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\__init__.py",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\utils\\__init__.py",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\certifi\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\dependency_groups\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distro\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\idna\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\platformdirs\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\rich\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\truststore\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\__init__.py",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\_securetransport\\__init__.py",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\__init__.py",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\backports\\__init__.py",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip-25.1.1.dist-info\\REQUESTED"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\backports\\__init__.py",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\__init__.py",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\_securetransport\\__init__.py",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\__init__.py",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\truststore\\py.typed",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\rich\\py.typed",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\py.typed",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\py.typed",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\platformdirs\\py.typed",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\py.typed",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\idna\\py.typed",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distro\\py.typed",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\dependency_groups\\py.typed",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\certifi\\py.typed",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\py.typed",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\utils\\__init__.py",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\__init__.py",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\legacy\\__init__.py",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\__init__.py",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\build\\__init__.py",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\__init__.py",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip-25.1.1.dist-info\\REQUESTED"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_5": {
+      "hash_size_key": "bd2fa011a5e69d2b68df68fbc59f8be6_26",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\tomli\\py.typed",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\tomli_w\\py.typed"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\tomli_w\\py.typed",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\tomli\\py.typed"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_6": {
+      "hash_size_key": "365c9bfeb7d89244f2ce01c1de44cb85_4",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip-25.1.1.dist-info\\INSTALLER",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip-25.1.1.dist-info\\top_level.txt"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip-25.1.1.dist-info\\top_level.txt",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip-25.1.1.dist-info\\INSTALLER"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_7": {
+      "hash_size_key": "9403ef3421887c22747a0f37bec61314_108447",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Scripts\\pip.exe",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Scripts\\pip3.13.exe",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Scripts\\pip3.exe"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Scripts\\pip3.exe",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Scripts\\pip3.13.exe",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Scripts\\pip.exe"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_8": {
+      "hash_size_key": "1c74dff76ee9c43facd5ab3a2a2d7597_484",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\biology\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\cosmology\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\philosophy\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\psychology\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\sociology\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\ai\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\ai\\README.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\ai\\README.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\ai\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\sociology\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\psychology\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\philosophy\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\cosmology\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\biology\\README.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_9": {
+      "hash_size_key": "71b2058bf7411f17cbe3899d06486f00_533",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\troubleshooting.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\troubleshooting.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\troubleshooting.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\troubleshooting.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_10": {
+      "hash_size_key": "a221ce08b045caf59b89bf88bde8bdea_496",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\ci_cd\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\mlops\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\platforms\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\security\\README.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\security\\README.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\platforms\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\mlops\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\ci_cd\\README.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_11": {
+      "hash_size_key": "cb78de45b1182b3a050a76d7ef225c50_527",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\contributing\\documentation.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing\\documentation.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing\\documentation.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\contributing\\documentation.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_12": {
+      "hash_size_key": "30f8ddea9572d86838a8e4b40df1a619_509",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\contributing\\testing.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing\\testing.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing\\testing.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\contributing\\testing.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_13": {
+      "hash_size_key": "480ea909f62421ac48f6d6e919cf415a_539",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\references\\component-library.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\ui-ux\\component-library.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\ui-ux\\component-library.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\references\\component-library.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_14": {
+      "hash_size_key": "4c47fd439ef6dad586c644d1ff924961_515",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\references\\standards.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing\\standards.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing\\standards.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\references\\standards.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_15": {
+      "hash_size_key": "5bc0c5059c5f2182ab1d51fb5920f4eb_527",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\troubleshooting.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\TROUBLESHOOTING.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\troubleshooting.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\TROUBLESHOOTING.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    },
+    "group_16": {
+      "hash_size_key": "659f29213f284b8759d3bdc9f61082d7_490",
+      "files": [
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\deployment\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\networking\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\safety_ethics\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\movement\\README.md",
+        "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\perception\\README.md"
+      ],
+      "recommendation": {
+        "action": "merge",
+        "keep": "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\perception\\README.md",
+        "remove": [
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\movement\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\safety_ethics\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\networking\\README.md",
+          "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\deployment\\README.md"
+        ],
+        "reason": "Keep file in preferred location, remove duplicates"
+      }
+    }
+  },
+  "stubs": [
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\ci_cd\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\performance\\memory-management.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\performance\\offline-support.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\performance\\optimization.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\scripts\\deep_scan_duplicates_stubs.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\scripts\\scripts\\auto_fix_docs.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\scripts\\scripts\\create_missing_doc_stubs.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\scripts\\scripts\\vector_db_setup.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\contributing\\coding-standards.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\contributing\\development-setup.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\contributing\\documentation.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\contributing\\pull_requests.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\contributing\\setup.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\contributing\\standards.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\contributing\\style_guide.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\contributing\\testing.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\guides\\guides\\performance_tuning.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\operations\\deployment.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\operations\\safety_ethics.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\reference\\advanced_emotional_ai.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\reference\\advanced_physics.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\reference\\advanced_system.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\reference\\fairlearn.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\reference\\keras-rl2.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\reference\\neural_network_predictions.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\reference\\proxy.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\reference\\qiskit.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\reference\\scapy.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\reference\\web3.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\api-docs.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\api_reference.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\backend-integration.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\component-library.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\data_formats.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\device_management.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\edge_computing.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\performance_guide.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\php_standards.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\protocol_specs.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\security_guide.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\security_standards.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\standards.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references\\template_guide.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\build_env.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\cache.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\cli\\base_command.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\commands\\inspect.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\index\\collector.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\locations\\base.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\metadata\\base.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\models\\installation_report.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\models\\selection_prefs.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\network\\lazy_wheel.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\prepare.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\req\\constructors.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\req\\req_file.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\req\\req_install.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\req\\req_uninstall.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\candidates.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\factory.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\utils\\unpacking.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\vcs\\subversion.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\typing_extensions.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\controller.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\filewrapper.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\database.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\locators.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\metadata.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\util.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\version.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\wheel.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\msgpack\\fallback.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\metadata.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\requirements.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\tags.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pkg_resources\\__init__.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\lexers\\python.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\requests\\adapters.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\requests\\hooks.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\rich\\text.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\truststore\\_macos.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\connection.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\connectionpool.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\exceptions.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\response.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\pyopenssl.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\securetransport.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\response.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\retry.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\url.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\architecture.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\changelog.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\current_goal.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\FIXME.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\memories.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\method.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\notes.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\plan.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\rollback.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\system_design.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\mcp-instructions\\TODO.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\access_control.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\authentication.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\authorization.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\deployment.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\encryption.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\intrusion_detection.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\key_management.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\secure-storage.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security\\secure_boot.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\improvements_module.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\anthropic\\templates\\constitutional_assessment_template.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\emotional_intelligence\\ADVANCED_IMPROVEMENTS.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\guides\\multimodal_integration.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\mlops\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\main.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\networking.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\agents\\codegen_agent.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\api\\dependencies.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\database\\document_store.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\database\\relational_db.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\database\\vector_db.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\integrations\\rails_service.py",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\blockchain\\3d_blockchain.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\mobile\\mobile\\vision_apps.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\cross-platform\\flutter.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\cross-platform\\react-native.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\advanced_emotional_ai.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\CONTRIBUTING.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ethics_explainability.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\knowledge_representation.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\LICENSE.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\nlp_ml.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\system_design.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\ai\\guides\\multimodal_integration.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\ai\\guides\\quantum_circuit_optimization.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\audio\\LICENSE.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\audio\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\emotional_intelligence\\CONTRIBUTING.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\emotional_intelligence\\LICENSE.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\guides\\performance_tuning.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\guides\\robotics_ai_algorithms.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\guides\\robotics_movement.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\biology\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\cosmology\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\philosophy\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\psychology\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\sociology\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\security\\access_control.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\security\\deployment.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\tools\\benchmarking.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\api\\audio_recognition_api.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\audio\\audio_recognition.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\audio\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\3d_model_generation.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\3d_printing_export.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\advanced_physics.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\cnc_machining_export.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\fea_analysis.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\gan_design_generation.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\generative_design.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\genetic_algorithm_optimization.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\iot_manufacturing.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\multi_material_design.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\neural_network_predictions.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\cad_manufacturing\\openscad_automation.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\environment.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\troubleshooting.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\ci_cd\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\mlops\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\platforms\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\security\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\examples\\emotional_intelligence.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\examples\\multidisciplinary.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\examples\\emotional_intelligence\\demo_emotional_ai.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\guides\\multimodal_integration.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\hardware\\sensors.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\troubleshooting.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\contributing\\documentation.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\contributing\\pull_requests.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\contributing\\setup.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\contributing\\style_guide.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\contributing\\testing.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\device_management\\configuration.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\device_management\\discovery.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\device_management\\firmware.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\device_management\\monitoring.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\device_management\\registration.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\edge_computing\\analytics.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\edge_computing\\processing.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\edge_computing\\resource_management.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\edge_computing\\storage.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\edge_computing\\synchronization.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\protocols\\amqp.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\protocols\\coap.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\protocols\\http.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\protocols\\mqtt.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\protocols\\websockets.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\references\\data_formats.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\references\\device_management.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\references\\edge_computing.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\references\\protocol_specs.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\references\\security_standards.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\security\\authentication.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\security\\authorization.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\security\\encryption.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\security\\intrusion_detection.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\security\\key_management.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\security\\secure_boot.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\sensors\\calibration.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\sensors\\data_collection.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\sensors\\fusion.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\sensors\\types.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\sensors\\validation.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\libraries\\fairlearn.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\libraries\\keras-rl2.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\libraries\\qiskit.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\libraries\\scapy.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\libraries\\web3.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\machine_learning\\data_acquisition.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\machine_learning\\training\\training_guide.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\machine_learning\\vision_recognition\\vision_recognition_guide.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\machine_learning\\workflow\\deployment.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\manufacturing\\3d_printing_export.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\troubleshooting.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\contributing\\coding-standards.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\contributing\\development-setup.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\contributing\\documentation.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\contributing\\testing.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\cross-platform\\flutter.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\cross-platform\\react-native.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\examples\\knowledge-browser.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\examples\\multimodal-capture.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\examples\\offline-viewer.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\native\\android.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\native\\ios.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\performance\\memory-management.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\performance\\offline-support.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\performance\\optimization.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\references\\api-docs.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\references\\backend-integration.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\references\\component-library.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\references\\standards.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\security\\authentication.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\security\\encryption.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\security\\secure-storage.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\ui-ux\\accessibility.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\ui-ux\\component-library.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\ui-ux\\design-principles.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\ai_system_enhancements.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\api.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\CONTRIBUTING.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\development.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\faq.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\human_robot_interaction.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\integration.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\safety_ethics.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\specs.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\testing.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\troubleshooting.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\13_star_sign_calendar.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\advanced_system.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\connectivity_and_communication.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\industry4.0.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\quantum_temporal_mapping.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\simulation.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\TROUBLESHOOTING.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\ai\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\deployment\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\networking\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\safety_ethics\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\testing\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\ui_ux\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\ai\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\control\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\examples\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\movement\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\perception\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\apis\\api_gateway.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\networking\\proxy.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\performance\\denormalization.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing\\documentation.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing\\pull_requests.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing\\setup.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing\\standards.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing\\testing.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\references\\api_reference.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\references\\performance_guide.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\references\\php_standards.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\references\\security_guide.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\references\\template_guide.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\security\\authentication.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\security\\security.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\biology\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\cosmology\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\philosophy\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\psychology\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\examples\\examples\\knowledge-browser.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\examples\\examples\\multimodal-capture.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\examples\\examples\\offline-viewer.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\movement\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\networking\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\perception\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\templates\\templates\\review_template.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\templates\\templates\\technical_review_template.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\api\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\native\\android.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\native\\ios.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\device_management\\configuration.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\device_management\\discovery.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\device_management\\firmware.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\device_management\\monitoring.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\device_management\\registration.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\edge\\analytics.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\edge\\processing.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\edge\\resource_management.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\edge\\storage.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\edge\\synchronization.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\iot\\sensors.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platform\\deployment\\deployment\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platforms\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\protocols\\mcp\\api\\knowledge_api.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\protocols\\mcp\\api\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\protocols\\mcp\\vectorization\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\protocols\\protocols\\amqp.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\protocols\\protocols\\coap.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\protocols\\protocols\\http.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\protocols\\protocols\\mqtt.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\protocols\\protocols\\websockets.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\robotics\\advanced_system\\README.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\audio\\LICENSE.md",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\multidisciplinary_ai\\biology.py"
+  ],
+  "empty_directories": [
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\testing",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\tests\\unit",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\tools",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\governance\\compliance",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\governance\\policies",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\governance\\standards",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Include",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\quantum_computing\\components",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\microservices",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\scalability",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\guides",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\quantum\\simulators",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\quantum\\utils",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\ai",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\blockchain",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\core\\infrastructure",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\core\\platform",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\core\\security",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platform\\monitoring",
+    "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\quantum"
+  ],
+  "similar_directories": {
+    "applications": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\applications",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\applications"
+    ],
+    "development": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\development"
+    ],
+    "examples": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\examples",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\examples",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\examples",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\examples",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\examples\\examples"
+    ],
+    "operations": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\operations",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\operations",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\operations"
+    ],
+    "src": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\applications\\web\\frontend\\src",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\web\\frontend\\src",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\src",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src"
+    ],
+    "info": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.git\\info",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.git\\objects\\info"
+    ],
+    "refs": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.git\\refs",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.git\\logs\\refs"
+    ],
+    "heads": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.git\\logs\\refs\\heads",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.git\\refs\\heads"
+    ],
+    "remotes": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.git\\logs\\refs\\remotes",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.git\\refs\\remotes"
+    ],
+    "origin": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.git\\logs\\refs\\remotes\\origin",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.git\\refs\\remotes\\origin"
+    ],
+    "include": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Include",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Include"
+    ],
+    "scripts": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Scripts",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\scripts",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\scripts\\scripts",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Scripts"
+    ],
+    "site_packages": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages"
+    ],
+    "pip": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip"
+    ],
+    "pip_25.1.1.dist_info": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip-25.1.1.dist-info",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip-25.1.1.dist-info"
+    ],
+    "internal": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal"
+    ],
+    "vendor": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor"
+    ],
+    "pycache": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\cli\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\commands\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\distributions\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\index\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\locations\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\metadata\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\metadata\\importlib\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\models\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\network\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\operations\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\operations\\build\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\operations\\install\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\req\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\legacy\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\utils\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\vcs\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\caches\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\certifi\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\dependency_groups\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\distro\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\idna\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\msgpack\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\licenses\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pkg_resources\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\platformdirs\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\filters\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\formatters\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\lexers\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\styles\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\requests\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\resolvers\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\tomli\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\tomli_w\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\truststore\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\_securetransport\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\backports\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\scripts\\scripts\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\cli\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\commands\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\distributions\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\index\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\locations\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\metadata\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\metadata\\importlib\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\models\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\network\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\build\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\install\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\req\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\legacy\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\utils\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\vcs\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\caches\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\certifi\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\dependency_groups\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distlib\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distro\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\idna\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\msgpack\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\licenses\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pkg_resources\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\platformdirs\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\filters\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\formatters\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\lexers\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\styles\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\requests\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\resolvers\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\rich\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\tomli\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\tomli_w\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\truststore\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\_securetransport\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\backports\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\emotional_intelligence\\emotion_models\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\emotional_intelligence\\empathy\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\emotional_intelligence\\memory\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\emotional_intelligence\\self_awareness\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\examples\\examples\\emotional_intelligence\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\advanced_engineering_ai\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\ai\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\audio\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\blockchain\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\fields_of_education\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\multidisciplinary_ai\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\multidisciplinary_ai\\cosmology\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\multidisciplinary_ai\\improvements\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\multidisciplinary_ai\\knowledge_system\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\multimodal\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\robotics\\advanced_system\\__pycache__",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\vision\\__pycache__"
+    ],
+    "cli": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\cli",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\cli"
+    ],
+    "commands": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\commands",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\commands"
+    ],
+    "distributions": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\distributions",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\distributions"
+    ],
+    "index": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\index",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\index"
+    ],
+    "locations": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\locations",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\locations"
+    ],
+    "metadata": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\metadata",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\metadata",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\metadata"
+    ],
+    "models": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\models",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\models",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\models"
+    ],
+    "network": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\network",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\network"
+    ],
+    "req": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\req",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\req"
+    ],
+    "resolution": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution"
+    ],
+    "utils": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\utils",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\utils",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\quantum\\utils"
+    ],
+    "vcs": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\vcs",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\vcs"
+    ],
+    "import": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\metadata\\importlib",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\metadata\\importlib"
+    ],
+    "build": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\operations\\build",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\build"
+    ],
+    "install": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\operations\\install",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\operations\\install"
+    ],
+    "legacy": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\legacy",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\legacy"
+    ],
+    "resolve": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_internal\\resolution\\resolvelib",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib"
+    ],
+    "cachecontrol": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol"
+    ],
+    "certifi": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\certifi",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\certifi"
+    ],
+    "dependency_groups": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\dependency_groups",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\dependency_groups"
+    ],
+    "dist": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\distlib",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distlib"
+    ],
+    "distro": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\distro",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\distro"
+    ],
+    "idna": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\idna",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\idna"
+    ],
+    "msgpack": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\msgpack",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\msgpack"
+    ],
+    "packaging": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\packaging",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\packaging"
+    ],
+    "pkg_resources": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pkg_resources",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pkg_resources"
+    ],
+    "platformdirs": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\platformdirs",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\platformdirs"
+    ],
+    "pygments": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments"
+    ],
+    "pyproject_hooks": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks"
+    ],
+    "requests": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\requests",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\requests"
+    ],
+    "rich": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\rich",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\rich"
+    ],
+    "tomli": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\tomli",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\tomli"
+    ],
+    "tomli_w": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\tomli_w",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\tomli_w"
+    ],
+    "truststore": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\truststore",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\truststore"
+    ],
+    "url3": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3"
+    ],
+    "caches": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\caches",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\cachecontrol\\caches"
+    ],
+    "licenses": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\licenses",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip-25.1.1.dist-info\\licenses",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\packaging\\licenses",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip-25.1.1.dist-info\\licenses"
+    ],
+    "filters": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\filters",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\filters"
+    ],
+    "formatters": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\formatters",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\formatters"
+    ],
+    "lexers": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\lexers",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\lexers"
+    ],
+    "styles": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\styles",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pygments\\styles"
+    ],
+    "in_process": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\pyproject_hooks\\_in_process"
+    ],
+    "resolvers": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\resolvers",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\resolvelib\\resolvers"
+    ],
+    "contrib": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib"
+    ],
+    "packages": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages"
+    ],
+    "util": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\util"
+    ],
+    "securetransport": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\_securetransport",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\contrib\\_securetransport"
+    ],
+    "backports": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\.venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\backports",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\keras\\venv\\Lib\\site-packages\\pip\\_vendor\\urllib3\\packages\\backports"
+    ],
+    "web": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\applications\\web",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\web",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\web"
+    ],
+    "frontend": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\applications\\web\\frontend",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\web\\frontend"
+    ],
+    "components": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\applications\\web\\frontend\\src\\components",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\quantum_computing\\components",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\quantum\\components"
+    ],
+    "integrations": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\applications\\web\\frontend\\src\\integrations",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\integrations"
+    ],
+    "services": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\applications\\web\\frontend\\src\\services",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\services"
+    ],
+    "ci_cd": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\ci_cd",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\ci-cd",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\ci_cd"
+    ],
+    "performance": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\performance",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\performance",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\performance"
+    ],
+    "testing": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\testing",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\testing"
+    ],
+    "tools": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\development\\tools",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\tools"
+    ],
+    "api": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\api",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\api",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\api",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\api",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\api",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\protocols\\mcp\\api"
+    ],
+    "contributing": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\contributing",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\contributing",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\contributing",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\contributing"
+    ],
+    "design": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\design",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\system_design"
+    ],
+    "guides": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\guides",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\guides\\guides",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\guides",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\guides",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\guides",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\guides",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\ai\\guides"
+    ],
+    "references": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\references",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\references",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\references",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php\\references"
+    ],
+    "specs": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\specs",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\specs"
+    ],
+    "safety_ethics": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\docs\\guidelines\\safety_ethics",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\safety_ethics"
+    ],
+    "quantum_computing": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\examples\\quantum_computing",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\quantum_computing"
+    ],
+    "iac": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\iac",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\iac"
+    ],
+    "infrastructure": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\infrastructure",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\infrastructure\\infrastructure",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\core\\infrastructure"
+    ],
+    "security": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\operations\\security\\security",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\security",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\security",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\security",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\security",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\security",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\security",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\security",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\core\\security",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\iot\\security"
+    ],
+    "ai": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\ai",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\ai",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\ai",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\src\\ai",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\ai",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\ai"
+    ],
+    "cross_platform": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\cross-platform",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\cross-platform"
+    ],
+    "movement": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\movement",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\movement"
+    ],
+    "networking": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\networking",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\networking",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\networking",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\networking"
+    ],
+    "perception": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\perception",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\perception",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\perception"
+    ],
+    "templates": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\templates",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\anthropic\\templates",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\templates\\templates"
+    ],
+    "emotional_intelligence": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\emotional_intelligence",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\emotional_intelligence",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\examples\\emotional_intelligence",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\examples\\examples\\emotional_intelligence"
+    ],
+    "mlops": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\mlops",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mlops",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\mlops"
+    ],
+    "quantum": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\ai\\quantum",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\quantum",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\quantum"
+    ],
+    "blockchain": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\blockchain",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\blockchain",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\blockchain",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\blockchain"
+    ],
+    "desktop": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\desktop",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\desktop\\desktop",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\desktop"
+    ],
+    "mobile": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\mobile",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\mobile\\mobile",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile"
+    ],
+    "monitoring": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\applications\\api\\backend\\src\\monitoring",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platform\\monitoring"
+    ],
+    "advanced": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\advanced_modules",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\robotics\\advanced_system",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\robotics\\advanced_system"
+    ],
+    "audio": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\audio",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\audio",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\audio"
+    ],
+    "deployment": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\deployment",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platform\\deployment",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platform\\deployment\\deployment"
+    ],
+    "hardware": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\hardware",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\hardware"
+    ],
+    "iot": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\iot",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\iot"
+    ],
+    "robotics": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\robotics",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\robotics"
+    ],
+    "multidisciplinary": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\examples\\multidisciplinary"
+    ],
+    "vision": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\vision",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\vision"
+    ],
+    "biology": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\biology",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\biology"
+    ],
+    "cosmology": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\cosmology",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\src\\multidisciplinary_ai\\cosmology",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\cosmology",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\multidisciplinary_ai\\cosmology"
+    ],
+    "philosophy": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\philosophy",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\philosophy"
+    ],
+    "psychology": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\psychology",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\psychology"
+    ],
+    "sociology": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\ai\\multidisciplinary\\sociology",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\domains\\sociology"
+    ],
+    "platforms": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\deployment\\platforms",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platforms"
+    ],
+    "device_management": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\device_management",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\device_management",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\iot\\device_management"
+    ],
+    "edge_computing": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\edge_computing",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\iot\\edge_computing"
+    ],
+    "protocols": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\protocols",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\protocols",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\protocols\\protocols",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\iot\\protocols"
+    ],
+    "sensors": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\iot\\sensors",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\sensors",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\iot\\sensors"
+    ],
+    "multimodal": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\machine_learning\\multimodal",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\multimodal"
+    ],
+    "native": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\native",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\native"
+    ],
+    "ui_ux": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\mobile\\ui-ux",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\ui_ux"
+    ],
+    "control": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\control",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\control"
+    ],
+    "navigation": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\robotics\\advanced_system\\navigation",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\robotics\\navigation"
+    ],
+    "multidisciplinary_ai": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\src\\multidisciplinary_ai",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\multidisciplinary_ai"
+    ],
+    "php": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\resources\\documentation\\docs\\web\\php",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\src\\web\\php"
+    ],
+    "core": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\src\\quantum\\core",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\core"
+    ],
+    "platform": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platform",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\core\\platform"
+    ],
+    "automation": [
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platform\\automation",
+      "c:\\Users\\jpowe\\CascadeProjects\\github\\knowledge-base\\systems\\platform\\automation\\automation"
+    ]
+  }
+}

@@ -1,0 +1,12 @@
+# Deep Scan & Auto-Remediation Configuration
+file_naming: snake_case
+dir_naming: snake_case
+php_naming: PascalCase
+js_naming: kebab-case
+exclude_dirs:
+  - .git
+  - node_modules
+  - __pycache__
+aggressive_refactor: true
+dry_run: false
+verbose: false

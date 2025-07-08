@@ -1,0 +1,19 @@
+# Core Dependencies
+torch>=1.9.0
+torchvision>=0.10.0
+torchaudio>=0.9.0
+numpy>=1.19.5
+scikit-learn>=0.24.2
+matplotlib>=3.4.3
+seaborn>=0.11.2
+tqdm>=4.62.3
+pandas>=1.3.3
+pillow>=8.3.2
+
+# Optional Dependencies (for specific use cases)
+# transformers>=4.10.0  # For NLP models
+# opencv-python>=4.5.4  # For computer vision
+# tensorboard>=2.6.0    # For training visualization
+# wandb>=0.12.0         # For experiment tracking
+# pyyaml>=5.4.1        # For configuration files
+# scipy>=1.7.1         # For scientific computing
