@@ -40,6 +40,7 @@ This directory contains comprehensive documentation and implementation examples 
 - [microservices/](microservices/) - Microservices design patterns and implementation
 - [performance/](performance/) - Performance optimization techniques
 - [security/](security/) - Web system security practices
+- [Cloud Service Models & RDBMS](system_design/cloud_service_models.md) - IaaS, PaaS, SaaS, and RDBMS explained
 
 ## Related Resources
 - [../../docs/deployment/](../deployment/) - Deployment strategies for web systems

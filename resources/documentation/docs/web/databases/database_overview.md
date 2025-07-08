@@ -143,5 +143,4 @@ A distributed database can only guarantee two of the following:
 - [../system_design/cache.md](../system_design/cache.md)
 - [../performance/denormalization.md](../../../temp_reorg/docs/web/system_design/denormalization.md)
 - [../system_design/vertical_partitioning.md](../system_design/vertical_partitioning.md)
-
-```
+- [Cloud Service Models & RDBMS](../system_design/cloud_service_models.md) - Cloud models and relational databases
