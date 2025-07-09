@@ -41,6 +41,8 @@ This directory contains comprehensive documentation and implementation examples 
 - [performance/](performance/) - Performance optimization techniques
 - [security/](security/) - Web system security practices
 - [Cloud Service Models & RDBMS](system_design/cloud_service_models.md) - IaaS, PaaS, SaaS, and RDBMS explained
+- [ERP Systems Overview](system_design/erp_overview.md) - ERP definition, modules, and best practices
+- [Technology Comparison](system_design/technology_comparison.md) - Programming languages, frameworks, containers, and virtualization
 
 ## Related Resources
 - [../../docs/deployment/](../deployment/) - Deployment strategies for web systems

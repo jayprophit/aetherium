@@ -144,3 +144,6 @@ A distributed database can only guarantee two of the following:
 - [../performance/denormalization.md](../../../temp_reorg/docs/web/system_design/denormalization.md)
 - [../system_design/vertical_partitioning.md](../system_design/vertical_partitioning.md)
 - [Cloud Service Models & RDBMS](../system_design/cloud_service_models.md) - Cloud models and relational databases
+- [ERP Systems Overview](../system_design/erp_overview.md) - ERP definition, modules, and best practices
+- [Technology Comparison](../system_design/technology_comparison.md) - Programming languages, frameworks, containers, and virtualization
+```````
