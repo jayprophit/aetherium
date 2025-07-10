@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+  auth:
+    build: ./backend/auth
+    ports:
+      - "4001:4000"
+  finance:
+    build: ./backend/finance
+    ports:
+      - "4002:4000"
+  hr:
+    build: ./backend/hr
+    ports:
+      - "4003:4000"
+  scm:
+    build: ./backend/scm
+    ports:
+      - "4004:4000"
+  crm:
+    build: ./backend/crm
+    ports:
+      - "4005:4000"
+  blockchain:
+    build: ./backend/blockchain
+    ports:
+      - "4010:4000"
+  ai:
+    build: ./backend/ai
+    ports:
+      - "4011:8000"
