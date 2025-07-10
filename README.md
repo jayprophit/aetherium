@@ -31,12 +31,21 @@ A unified, extensible platform integrating all major business, technology, and A
 - Shared libraries, infrastructure, and tests are accessible to all modules
 - Documentation and navigation reflect this unified, modular structure
 
+## Cross-Disciplinary Inspiration & Contribution
+- The knowledge-base encourages the integration of inspiration and references from:
+  - Theories, ideas, and scientific papers
+  - Films, movies, TV series, anime, and animation
+  - Books, comics, and audio books
+  - Documentaries and cross-genre media
+- Add relevant content and cross-link it with patents, modules, and documentation to enhance and advance the system.
+- See `/knowledge/patents/README.md` for examples and contribution guidelines.
+
 ## Contributing New Data & Modules
 - Add new business, AI, or technology modules under `/modules/`
 - Add new documentation, theory, or knowledge to `/resources/documentation/docs/`
 - Cross-link new content with existing modules for maximum integration
 - See `/modules/erp/docs/architecture.md` for an example of module documentation
 
-See `/modules/erp/` and `/resources/documentation/docs/` for details and cross-links.
+See `/modules/erp/`, `/resources/documentation/docs/`, and `/knowledge/patents/README.md` for details and cross-links.
 
 ---
