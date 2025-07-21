@@ -1,0 +1,15 @@
+# Jekyll
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+
+# Environment files
+.env
+
+# Ruby
+.bundle/
+vendor/
+
+# Node
+node_modules/

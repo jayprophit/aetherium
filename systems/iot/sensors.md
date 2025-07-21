@@ -1,21 +1,30 @@
 ---
-title: Sensors
+title: IoT Sensors
 date: 2025-07-08
 ---
 
-# Sensors
+# IoT Sensors
 
----
-author: Knowledge Base Automation System
-created_at: '2025-07-04'
-description: Auto-generated stub for sensors.md
-title: Sensors
-updated_at: '2025-07-04'
-version: 1.0.0
----
+## Overview
 
-# Sensors
+This document covers IoT sensor integration patterns.
 
-*This is an auto-generated stub file created to fix a broken link.*
+## Sensor Types
 
-TODO: Replace this stub with actual content.
+- Environmental sensors
+- Motion detectors
+- Biometric sensors
+
+## Integration Patterns
+
+- MQTT-based sensor data collection
+- HTTP streaming
+- Edge processing
+
+## Data Processing
+
+- Real-time analytics
+- Batch processing
+- Anomaly detection
+
+This section is under active development. Content will be added in a future update.

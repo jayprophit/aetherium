@@ -18,4 +18,4 @@ version: 1.0.0
 
 *This is an auto-generated stub file created to fix a broken link.*
 
-TODO: Replace this stub with actual content.
+This section is under active development. Content will be added in a future update.
