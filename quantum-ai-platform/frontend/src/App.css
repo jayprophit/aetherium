@@ -1,0 +1,349 @@
+/* Quantum AI Platform - Modern Dark Theme Styles */
+
+.App {
+  text-align: center;
+}
+
+/* Global Dark Theme Overrides */
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #000 !important;
+  color: #fff !important;
+}
+
+/* Logo Styles */
+.logo {
+  background: linear-gradient(135deg, #1890ff, #52c41a);
+  border-radius: 8px;
+  margin: 16px;
+  transition: all 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 20px rgba(24, 144, 255, 0.3);
+}
+
+/* Custom Ant Design Dark Theme Overrides */
+.ant-layout {
+  background: #000 !important;
+}
+
+.ant-layout-sider {
+  background: #001529 !important;
+}
+
+.ant-layout-header {
+  background: #001529 !important;
+  border-bottom: 1px solid #303030 !important;
+}
+
+.ant-layout-content {
+  background: #000 !important;
+}
+
+/* Card Styles */
+.ant-card {
+  background: #262626 !important;
+  border: 1px solid #434343 !important;
+  border-radius: 8px !important;
+}
+
+.ant-card-head {
+  background: #1f1f1f !important;
+  border-bottom: 1px solid #434343 !important;
+}
+
+.ant-card-head-title {
+  color: #fff !important;
+}
+
+.ant-card-body {
+  background: #262626 !important;
+  color: #fff !important;
+}
+
+/* Table Styles */
+.ant-table {
+  background: #1f1f1f !important;
+}
+
+.ant-table-thead > tr > th {
+  background: #262626 !important;
+  color: #fff !important;
+  border-bottom: 1px solid #434343 !important;
+}
+
+.ant-table-tbody > tr > td {
+  background: #1f1f1f !important;
+  color: #fff !important;
+  border-bottom: 1px solid #303030 !important;
+}
+
+.ant-table-tbody > tr:hover > td {
+  background: #1890ff20 !important;
+}
+
+/* Form Controls */
+.ant-input {
+  background: #1f1f1f !important;
+  border: 1px solid #434343 !important;
+  color: #fff !important;
+}
+
+.ant-input:focus {
+  border-color: #1890ff !important;
+  box-shadow: 0 0 0 2px rgba(24, 144, 255, 0.2) !important;
+}
+
+.ant-select {
+  color: #fff !important;
+}
+
+.ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+  border-color: #1890ff !important;
+}
+
+.ant-select-selector {
+  background: #1f1f1f !important;
+  border: 1px solid #434343 !important;
+  color: #fff !important;
+}
+
+.ant-select-dropdown {
+  background: #262626 !important;
+  border: 1px solid #434343 !important;
+}
+
+.ant-select-item {
+  color: #fff !important;
+}
+
+.ant-select-item:hover {
+  background: #1890ff20 !important;
+}
+
+.ant-select-item-option-selected {
+  background: #1890ff !important;
+}
+
+/* Button Styles */
+.ant-btn {
+  border-radius: 6px !important;
+  font-weight: 500 !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-btn:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Progress Bars */
+.ant-progress-bg {
+  transition: all 0.3s ease !important;
+}
+
+/* Statistics */
+.ant-statistic-title {
+  color: #8c8c8c !important;
+  font-weight: 500 !important;
+}
+
+.ant-statistic-content {
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+
+/* Alerts */
+.ant-alert {
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+}
+
+/* Menu */
+.ant-menu {
+  background: #001529 !important;
+  border-right: none !important;
+}
+
+.ant-menu-item {
+  color: #fff !important;
+  transition: all 0.3s ease !important;
+}
+
+.ant-menu-item:hover {
+  background: #1890ff20 !important;
+  color: #1890ff !important;
+}
+
+.ant-menu-item-selected {
+  background: #1890ff !important;
+  color: #fff !important;
+}
+
+.ant-menu-item-icon {
+  transition: all 0.3s ease !important;
+}
+
+/* Quantum Visualization Styles */
+.quantum-circuit-canvas {
+  background: #1f1f1f;
+  border: 1px solid #434343;
+  border-radius: 8px;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8c8c8c;
+}
+
+.quantum-state-visual {
+  background: linear-gradient(135deg, #001529, #1f1f1f);
+  border-radius: 8px;
+  padding: 20px;
+  border: 1px solid #434343;
+}
+
+.time-crystal-animation {
+  position: relative;
+  overflow: hidden;
+}
+
+.time-crystal-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(24, 144, 255, 0.2), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+.neuromorphic-spikes {
+  background: radial-gradient(circle, #1890ff20, transparent);
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+/* IoT Device Status Indicators */
+.device-status-online {
+  color: #52c41a !important;
+  text-shadow: 0 0 8px #52c41a;
+}
+
+.device-status-offline {
+  color: #f5222d !important;
+  text-shadow: 0 0 8px #f5222d;
+}
+
+.device-status-warning {
+  color: #faad14 !important;
+  text-shadow: 0 0 8px #faad14;
+}
+
+/* Metrics Widgets */
+.metrics-widget {
+  background: linear-gradient(135deg, #262626, #1f1f1f);
+  border: 1px solid #434343;
+  border-radius: 8px;
+  padding: 16px;
+  transition: all 0.3s ease;
+}
+
+.metrics-widget:hover {
+  border-color: #1890ff;
+  box-shadow: 0 4px 20px rgba(24, 144, 255, 0.1);
+}
+
+/* Chart Container */
+.chart-container {
+  background: #1f1f1f;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid #434343;
+}
+
+/* Loading States */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+  color: #1890ff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ant-layout-sider {
+    position: fixed !important;
+    height: 100vh !important;
+    z-index: 1000 !important;
+  }
+  
+  .ant-layout-content {
+    margin-left: 0 !important;
+    padding: 12px !important;
+  }
+  
+  .quantum-circuit-canvas {
+    min-height: 200px;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f1f1f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #434343;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #1890ff;
+}
+
+/* Glassmorphism Effects */
+.glass-card {
+  background: rgba(38, 38, 38, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Quantum Glow Effects */
+.quantum-glow {
+  box-shadow: 0 0 20px rgba(24, 144, 255, 0.3);
+  border: 1px solid rgba(24, 144, 255, 0.5);
+}
+
+.time-crystal-glow {
+  box-shadow: 0 0 20px rgba(82, 196, 26, 0.3);
+  border: 1px solid rgba(82, 196, 26, 0.5);
+}
+
+.neuromorphic-glow {
+  box-shadow: 0 0 20px rgba(250, 173, 20, 0.3);
+  border: 1px solid rgba(250, 173, 20, 0.5);
+}

@@ -1,0 +1,85 @@
+# Quantum AI Platform with Time Crystals - Production Dependencies
+
+# Core FastAPI Backend
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+python-multipart==0.0.6
+
+# Quantum Computing
+qiskit==0.45.0
+qiskit-aer==0.13.0
+qiskit-ibm-runtime==0.15.0
+cirq==1.2.0
+pennylane==0.33.0
+pennylane-qiskit==0.32.0
+
+# AI/ML Core
+torch==2.1.0
+torchvision==0.16.0
+tensorflow==2.14.0
+numpy==1.24.3
+scipy==1.11.4
+scikit-learn==1.3.2
+pandas==2.1.4
+
+# Neuromorphic Computing
+spikingjelly==0.0.0.0.14
+snntorch==0.7.0
+norse==1.0.0
+lava-nc==0.8.0
+
+# Time Crystal Physics Simulation
+sympy==1.12
+matplotlib==3.8.2
+plotly==5.17.0
+bokeh==3.3.2
+
+# Database Layers
+pymongo==4.6.0
+motor==3.3.2
+asyncpg==0.29.0
+redis==5.0.1
+qdrant-client==1.7.0
+chromadb==0.4.18
+pinecone-client==2.2.4
+
+# IoT and Communication
+paho-mqtt==1.6.1
+websockets==12.0
+aiohttp==3.9.1
+httpx==0.25.2
+
+# Security and Authentication
+cryptography==41.0.8
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+python-multipart==0.0.6
+
+# Blockchain Integration
+web3==6.12.0
+eth-hash==0.5.2
+eth-utils==2.3.0
+
+# Development and Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Production
+gunicorn==21.2.0
+docker==6.1.3
+kubernetes==28.1.0
+
+# Data Science and Visualization
+jupyter==1.0.0
+seaborn==0.13.0
+dash==2.14.2
+streamlit==1.28.2
+
+# Additional Physics/Math Libraries
+pyqubo==1.4.0
+dimod==0.12.11
+networkx==3.2.1

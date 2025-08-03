@@ -1,0 +1,94 @@
+# Quantum AI Platform Configuration
+# Production-ready settings for all system components
+
+quantum:
+  num_qubits: 32
+  max_circuits: 1000
+  optimization_iterations: 100
+  coherence_time_ms: 100.0
+  gate_fidelity: 0.99
+  measurement_error: 0.01
+  backend_type: "qasm_simulator"
+  error_correction_enabled: true
+  quantum_volume: 32
+
+time_crystal:
+  num_crystals: 8
+  dimensions: 3
+  driving_frequency_ghz: 1.0
+  coupling_strength: 0.1
+  coherence_threshold: 0.95
+  synchronization_timeout_ms: 1000
+  thermal_noise_amplitude: 0.001
+  max_entanglement_distance: 10.0
+
+neuromorphic:
+  num_neurons: 10000
+  num_synapses: 100000
+  membrane_time_constant_ms: 20.0
+  threshold_voltage: -55.0
+  reset_voltage: -70.0
+  refractory_period_ms: 2.0
+  synaptic_delay_ms: 1.0
+  plasticity_learning_rate: 0.001
+  quantum_entanglement_strength: 0.1
+
+ai_ml:
+  learning_rate: 0.001
+  batch_size: 32
+  max_epochs: 1000
+  early_stopping_patience: 50
+  optimization_targets:
+    - "quantum_fidelity"
+    - "time_crystal_coherence"
+    - "neuromorphic_efficiency"
+  model_architecture: [128, 64, 32]
+  activation_function: "relu"
+  optimizer: "adam"
+  regularization_l2: 0.0001
+
+iot:
+  mqtt_broker_host: "localhost"
+  mqtt_broker_port: 1883
+  mqtt_username: ""
+  mqtt_password: ""
+  mqtt_keepalive: 60
+  websocket_port: 8765
+  max_devices: 1000
+  device_timeout_seconds: 300
+  data_retention_days: 30
+  quantum_sync_enabled: true
+
+database:
+  mongodb_url: "mongodb://localhost:27017"
+  mongodb_database: "quantum_ai_platform"
+  postgresql_url: "postgresql://quantum_user:quantum_pass@localhost:5432/quantum_ai_db"
+  redis_url: "redis://localhost:6379"
+  qdrant_host: "localhost"
+  qdrant_port: 6333
+  chromadb_path: "./chroma_db"
+  connection_pool_size: 20
+  query_timeout: 30
+
+security:
+  secret_key: "quantum-ai-super-secret-key-change-in-production-2024"
+  jwt_algorithm: "HS256"
+  access_token_expire_minutes: 30
+  refresh_token_expire_days: 7
+  password_min_length: 8
+  max_login_attempts: 5
+  account_lockout_minutes: 30
+  api_key_expire_days: 365
+  encryption_enabled: true
+  https_only: false
+
+system:
+  debug_mode: true
+  log_level: "INFO"
+  max_concurrent_tasks: 100
+  background_task_interval: 60
+  health_check_interval: 30
+  metrics_collection_enabled: true
+  monitoring_enabled: true
+  auto_scaling_enabled: false
+  maintenance_mode: false
