@@ -1,181 +1,240 @@
 #!/bin/bash
 
-# Quantum AI Platform Development Startup Script
-# This script sets up and starts the development environment
+# Atherium - Advanced Quantum AI Platform
+# Development Environment Startup Script
 
 set -e
 
-echo "🚀 Starting Quantum AI Platform - Development Environment"
-echo "============================================================"
+echo "🌌 Starting Atherium Development Environment..."
+echo "================================================="
 
-# Check if we're in the correct directory
-if [ ! -f "docker-compose.yml" ]; then
-    echo "❌ Error: Please run this script from the quantum-ai-platform directory"
+# Configuration
+ATHERIUM_ENV="development"
+PLATFORM_DIR="$(pwd)/platform"
+AI_SYSTEMS_DIR="$(pwd)/ai-systems"
+DOCS_DIR="$(pwd)/docs"
+
+# Colors for output
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+NC='\033[0m' # No Color
+
+print_status() {
+    echo -e "${BLUE}[INFO]${NC} $1"
+}
+
+print_success() {
+    echo -e "${GREEN}[SUCCESS]${NC} $1"
+}
+
+print_warning() {
+    echo -e "${YELLOW}[WARNING]${NC} $1"
+}
+
+print_error() {
+    echo -e "${RED}[ERROR]${NC} $1"
+}
+
+print_section() {
+    echo -e "\n${PURPLE}=== $1 ===${NC}"
+}
+
+# Check prerequisites
+print_section "Prerequisites Check"
+
+check_command() {
+    if command -v $1 &> /dev/null; then
+        print_success "$1 is installed"
+        return 0
+    else
+        print_error "$1 is not installed"
+        return 1
+    fi
+}
+
+# Check required commands
+MISSING_DEPS=0
+check_command "docker" || MISSING_DEPS=1
+check_command "docker-compose" || MISSING_DEPS=1
+check_command "python3" || MISSING_DEPS=1
+check_command "node" || MISSING_DEPS=1
+check_command "npm" || MISSING_DEPS=1
+
+if [ $MISSING_DEPS -eq 1 ]; then
+    print_error "Missing required dependencies. Please install them before continuing."
     exit 1
 fi
 
-# Check for required tools
-echo "🔍 Checking prerequisites..."
+# Check Python version
+PYTHON_VERSION=$(python3 --version | cut -d' ' -f2)
+print_status "Python version: $PYTHON_VERSION"
 
-# Check Docker
-if ! command -v docker &> /dev/null; then
-    echo "❌ Docker is not installed. Please install Docker first."
-    exit 1
-fi
+# Check Node version
+NODE_VERSION=$(node --version)
+print_status "Node.js version: $NODE_VERSION"
 
-# Check Docker Compose
-if ! command -v docker-compose &> /dev/null; then
-    echo "❌ Docker Compose is not installed. Please install Docker Compose first."
-    exit 1
-fi
+# Environment Setup
+print_section "Environment Setup"
 
-# Check Node.js
-if ! command -v node &> /dev/null; then
-    echo "⚠️  Node.js not found. Frontend development will require Node.js 18+"
-fi
-
-# Check Python
-if ! command -v python3 &> /dev/null; then
-    echo "⚠️  Python 3 not found. Backend development will require Python 3.11+"
-fi
-
-echo "✅ Prerequisites check completed"
-
-# Setup environment file
+# Create .env if it doesn't exist
 if [ ! -f ".env" ]; then
-    echo "📝 Creating environment file from template..."
-    cp .env.example .env
-    echo "✅ Environment file created. Please review and modify .env as needed."
+    if [ -f ".env.example" ]; then
+        cp .env.example .env
+        print_success "Created .env from .env.example"
+    else
+        print_warning ".env.example not found, using platform/.env.example"
+        if [ -f "platform/.env.example" ]; then
+            cp platform/.env.example .env
+            print_success "Created .env from platform/.env.example"
+        else
+            print_error "No .env.example found"
+            exit 1
+        fi
+    fi
 else
-    echo "✅ Environment file already exists"
+    print_success ".env file exists"
 fi
 
-# Create necessary directories
-echo "📁 Creating necessary directories..."
-mkdir -p logs data uploads backups temp
-mkdir -p frontend/build backend/logs
-chmod 755 logs data uploads backups temp
+# Source environment variables
+if [ -f ".env" ]; then
+    export $(cat .env | grep -v '^#' | xargs)
+    print_success "Environment variables loaded"
+fi
 
-# Start development services
-echo "🚀 Starting development services..."
+# Database Services Setup
+print_section "Database Services"
 
-# Start databases and infrastructure first
-echo "🗄️  Starting databases..."
-docker-compose up -d postgres mongo redis qdrant chromadb mosquitto
+print_status "Starting database services with Docker Compose..."
 
-# Wait for databases to be ready
-echo "⏳ Waiting for databases to initialize..."
-sleep 15
+# Start databases
+if [ -f "platform/docker-compose.yml" ]; then
+    cd platform
+    docker-compose up -d mongodb postgresql redis qdrant
+    cd ..
+    print_success "Database services started"
+else
+    print_warning "platform/docker-compose.yml not found, skipping database startup"
+fi
 
-# Check database health
-echo "🏥 Checking database health..."
-timeout=60
-while [ $timeout -gt 0 ]; do
-    if docker-compose exec -T postgres pg_isready -U quantumai > /dev/null 2>&1; then
-        echo "✅ PostgreSQL is ready"
-        break
-    fi
-    echo "⏳ Waiting for PostgreSQL... ($timeout seconds remaining)"
-    sleep 2
-    timeout=$((timeout-2))
-done
+# Wait for services to be ready
+print_status "Waiting for services to be ready..."
+sleep 10
 
-timeout=60
-while [ $timeout -gt 0 ]; do
-    if docker-compose exec -T mongo mongosh --eval "db.adminCommand('ping')" > /dev/null 2>&1; then
-        echo "✅ MongoDB is ready"
-        break
-    fi
-    echo "⏳ Waiting for MongoDB... ($timeout seconds remaining)"
-    sleep 2
-    timeout=$((timeout-2))
-done
+# Backend Setup
+print_section "Backend Setup"
 
-# Install backend dependencies if running locally
-if [ "$1" == "--local" ]; then
-    echo "🐍 Setting up local Python environment..."
-    if [ ! -d "backend/venv" ]; then
-        python3 -m venv backend/venv
+if [ -d "$PLATFORM_DIR" ]; then
+    print_status "Setting up Atherium Platform Backend..."
+    
+    # Install Python dependencies
+    if [ -f "$PLATFORM_DIR/requirements.txt" ]; then
+        print_status "Installing Python dependencies..."
+        pip3 install -r "$PLATFORM_DIR/requirements.txt"
+        print_success "Python dependencies installed"
+    else
+        print_warning "platform/requirements.txt not found"
     fi
     
-    source backend/venv/bin/activate
-    pip install --upgrade pip
-    pip install -r backend/requirements.txt
-    echo "✅ Backend dependencies installed"
+    # Start backend server
+    print_status "Starting Atherium Platform Backend..."
+    cd "$PLATFORM_DIR"
+    python3 -m uvicorn backend.main:app --host 0.0.0.0 --port 8000 --reload &
+    BACKEND_PID=$!
+    cd ..
+    print_success "Backend started (PID: $BACKEND_PID)"
+else
+    print_error "Platform directory not found"
+    exit 1
+fi
+
+# Frontend Setup
+print_section "Frontend Setup"
+
+if [ -d "$PLATFORM_DIR/frontend" ]; then
+    print_status "Setting up Atherium Platform Frontend..."
     
-    # Install frontend dependencies
-    if command -v npm &> /dev/null; then
-        echo "📦 Installing frontend dependencies..."
-        cd frontend
+    cd "$PLATFORM_DIR/frontend"
+    
+    # Install Node dependencies
+    if [ -f "package.json" ]; then
+        print_status "Installing Node.js dependencies..."
         npm install
-        cd ..
-        echo "✅ Frontend dependencies installed"
+        print_success "Node.js dependencies installed"
+        
+        # Start frontend development server
+        print_status "Starting Atherium Platform Frontend..."
+        npm start &
+        FRONTEND_PID=$!
+        print_success "Frontend started (PID: $FRONTEND_PID)"
+    else
+        print_warning "platform/frontend/package.json not found"
     fi
     
-    echo "🚀 Starting services locally..."
-    echo "Backend: python -m uvicorn backend.main:app --reload --host 0.0.0.0 --port 8000"
-    echo "Frontend: cd frontend && npm start"
-    echo ""
-    echo "💡 Run these commands in separate terminals:"
-    echo "Terminal 1: cd backend && source venv/bin/activate && python -m uvicorn main:app --reload"
-    echo "Terminal 2: cd frontend && npm start"
+    cd ../..
 else
-    # Start the main application
-    echo "🚀 Starting main application..."
-    docker-compose up -d quantum-ai-platform
-    
-    # Start monitoring services
-    echo "📊 Starting monitoring services..."
-    docker-compose up -d prometheus grafana
+    print_warning "Platform frontend directory not found"
 fi
 
-# Wait for main application to be ready
-echo "⏳ Waiting for application to start..."
-timeout=120
-while [ $timeout -gt 0 ]; do
-    if curl -f http://localhost:8000/health > /dev/null 2>&1; then
-        echo "✅ Application is ready!"
-        break
-    fi
-    echo "⏳ Starting application... ($timeout seconds remaining)"
-    sleep 3
-    timeout=$((timeout-3))
-done
+# Health Checks
+print_section "Health Checks"
 
-# Show service status
-echo ""
-echo "🎯 Service Status:"
-echo "=================="
-docker-compose ps
+sleep 5
 
-echo ""
-echo "🌐 Access URLs:"
-echo "==============="
-echo "🔗 Frontend:          http://localhost"
-echo "🔗 Backend API:       http://localhost:8000"
-echo "🔗 API Documentation: http://localhost:8000/docs"
-echo "🔗 Grafana Dashboard: http://localhost:3000 (admin/quantum_admin_2025)"
-echo "🔗 Prometheus:        http://localhost:9090"
+# Check backend health
+print_status "Checking backend health..."
+if curl -f http://localhost:8000/health &> /dev/null; then
+    print_success "Backend is healthy"
+else
+    print_warning "Backend health check failed"
+fi
+
+# Check frontend
+print_status "Checking frontend..."
+if curl -f http://localhost:3000 &> /dev/null; then
+    print_success "Frontend is accessible"
+else
+    print_warning "Frontend not accessible yet (may still be starting)"
+fi
+
+# Development Information
+print_section "Development Environment Ready"
 
 echo ""
-echo "📊 System Information:"
-echo "======================"
-echo "🔄 Database Status:"
-docker-compose exec postgres pg_isready -U quantumai 2>/dev/null && echo "  ✅ PostgreSQL: Connected" || echo "  ❌ PostgreSQL: Not connected"
-docker-compose exec mongo mongosh --quiet --eval "print('  ✅ MongoDB: Connected')" 2>/dev/null || echo "  ❌ MongoDB: Not connected"
-docker-compose exec redis redis-cli ping | grep -q PONG && echo "  ✅ Redis: Connected" || echo "  ❌ Redis: Not connected"
-
+echo "🌌 Atherium Development Environment is Ready!"
+echo "=============================================="
+echo ""
+echo "📚 Platform Access:"
+echo "   Frontend:      http://localhost:3000"
+echo "   Backend API:   http://localhost:8000"
+echo "   API Docs:      http://localhost:8000/docs"
+echo ""
+echo "📊 Database Services:"
+echo "   MongoDB:       localhost:27017"
+echo "   PostgreSQL:    localhost:5432"
+echo "   Redis:         localhost:6379"
+echo "   Qdrant:        localhost:6333"
 echo ""
 echo "🔧 Development Commands:"
-echo "========================"
-echo "📋 View logs:           docker-compose logs -f [service_name]"
-echo "🔄 Restart service:     docker-compose restart [service_name]"
-echo "🛑 Stop all services:   docker-compose down"
-echo "🗑️  Clean volumes:       docker-compose down -v"
-echo "🏗️  Rebuild images:      docker-compose build --no-cache"
-echo "📊 Service status:      docker-compose ps"
-echo "🐚 Shell access:        docker-compose exec [service_name] bash"
-
+echo "   Stop services: docker-compose -f platform/docker-compose.yml down"
+echo "   View logs:     docker-compose -f platform/docker-compose.yml logs -f"
+echo "   Run tests:     ./development/scripts/run-tests.sh"
 echo ""
-echo "✅ Quantum AI Platform development environment is ready!"
-echo "🚀 Happy coding! 🧬⚛️🤖"
+echo "📝 Configuration:"
+echo "   Main config:   atherium-config.yaml"
+echo "   Environment:   .env"
+echo ""
+
+# Save PIDs for cleanup
+echo $BACKEND_PID > /tmp/atherium_backend.pid
+echo $FRONTEND_PID > /tmp/atherium_frontend.pid
+
+print_success "Atherium development environment is running!"
+print_status "Press Ctrl+C to stop all services"
+
+# Wait for interrupt
+trap 'echo -e "\n${YELLOW}Shutting down Atherium development environment...${NC}"; kill $BACKEND_PID $FRONTEND_PID 2>/dev/null; docker-compose -f platform/docker-compose.yml down; exit 0' INT
+
+wait

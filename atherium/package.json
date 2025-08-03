@@ -1,0 +1,53 @@
+{
+  "name": "atherium",
+  "version": "1.0.0",
+  "description": "Advanced Quantum AI Platform - Unified Intelligence • Quantum Computing • Neuromorphic Systems",
+  "main": "index.html",
+  "scripts": {
+    "dev": "./development/scripts/start-dev.sh",
+    "build": "npm run build:platform && npm run build:ai-systems",
+    "build:platform": "cd platform/frontend && npm run build",
+    "build:ai-systems": "cd ai-systems/frontend && npm run build",
+    "test": "./development/scripts/run-tests.sh",
+    "deploy": "./development/scripts/deploy-production.sh",
+    "start": "npm run dev",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "quantum-computing",
+    "artificial-intelligence",
+    "neuromorphic",
+    "time-crystals",
+    "machine-learning",
+    "iot",
+    "blockchain",
+    "fastapi",
+    "react",
+    "atherium"
+  ],
+  "author": "Atherium Development Team",
+  "license": "SEE LICENSE FILE",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jayprophit/atherium.git"
+  },
+  "homepage": "https://github.com/jayprophit/atherium#readme",
+  "bugs": {
+    "url": "https://github.com/jayprophit/atherium/issues"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.50.0",
+    "prettier": "^3.0.0",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0"
+  },
+  "workspaces": [
+    "platform/frontend",
+    "ai-systems/frontend"
+  ]
+}
