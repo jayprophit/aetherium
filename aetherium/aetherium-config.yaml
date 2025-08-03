@@ -1,10 +1,10 @@
-# Atherium - Advanced Quantum AI Platform Configuration
+# Aetherium - Advanced Quantum AI Platform Configuration
 # Unified configuration for all platform components
 
 platform:
-  name: "Atherium"
+  name: "Aetherium"
   version: "1.0.0"
-  description: "Advanced Quantum AI Platform - Unified Intelligence • Quantum Computing • Neuromorphic Systems"
+  description: "Advanced Quantum AI Platform - Unified Intelligence • Quantum Computing • Neuromorphic Systems • AI Productivity Suite"
   environment: "development"  # development, staging, production
 
 # Core Platform Components
