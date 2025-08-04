@@ -14,6 +14,7 @@ import AIOptimization from './pages/AIOptimization/AIOptimization';
 import IoTDevices from './pages/IoTDevices/IoTDevices';
 import SystemMetrics from './pages/SystemMetrics/SystemMetrics';
 import Settings from './pages/Settings/Settings';
+import ProductivitySuite from './pages/ProductivitySuite/ProductivitySuite';
 
 // Context providers
 import { ApiProvider } from './contexts/ApiContext';
@@ -50,7 +51,7 @@ const App: React.FC = () => {
                 >
                   <div className="logo">
                     <h2 style={{ color: '#fff', textAlign: 'center', padding: '16px' }}>
-                      {collapsed ? 'QAI' : 'Quantum AI Platform'}
+                      {collapsed ? 'AEI' : 'Aetherium AI'}
                     </h2>
                   </div>
                   <Sidebar />
@@ -71,7 +72,7 @@ const App: React.FC = () => {
                       color: '#fff'
                     }}>
                       <h1 style={{ margin: 0, color: '#fff' }}>
-                        Quantum AI Platform with Time Crystals
+                        Aetherium AI Productivity Platform
                       </h1>
                       <div>
                         {/* Status indicators, user menu, etc. */}
@@ -89,6 +90,7 @@ const App: React.FC = () => {
                       <Routes>
                         <Route path="/" element={<Dashboard />} />
                         <Route path="/dashboard" element={<Dashboard />} />
+                        <Route path="/productivity" element={<ProductivitySuite />} />
                         <Route path="/quantum" element={<QuantumLab />} />
                         <Route path="/time-crystals" element={<TimeCrystals />} />
                         <Route path="/neuromorphic" element={<Neuromorphic />} />
