@@ -10,7 +10,8 @@ import {
   WifiOutlined,
   BarChartOutlined,
   SettingOutlined,
-  ThunderboltOutlined
+  ThunderboltOutlined,
+  RocketOutlined
 } from '@ant-design/icons';
 
 const Sidebar: React.FC = () => {
@@ -22,6 +23,11 @@ const Sidebar: React.FC = () => {
       key: '/dashboard',
       icon: <DashboardOutlined />,
       label: 'Dashboard',
+    },
+    {
+      key: '/productivity',
+      icon: <RocketOutlined />,
+      label: 'AI Productivity Suite',
     },
     {
       key: '/quantum',
