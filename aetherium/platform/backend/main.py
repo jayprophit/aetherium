@@ -29,6 +29,7 @@ from api.time_crystal_routes import router as time_crystal_router, set_time_crys
 from api.neuromorphic_routes import router as neuromorphic_router, set_neuromorphic_processor_instance
 from api.ai_ml_routes import router as ai_ml_router, set_hybrid_optimizer_instance
 from api.iot_routes import router as iot_router, set_iot_manager_instance
+from api.productivity_suite_routes import router as productivity_router
 
 # Global component instances
 db_manager = None
@@ -183,6 +184,7 @@ app.include_router(time_crystal_router, prefix="/api/time-crystals", tags=["Time
 app.include_router(neuromorphic_router, prefix="/api/neuromorphic", tags=["Neuromorphic Computing"])
 app.include_router(ai_ml_router, prefix="/api/ai-ml", tags=["AI/ML Optimization"])
 app.include_router(iot_router, prefix="/api/iot", tags=["IoT Integration"])
+app.include_router(productivity_router, prefix="/api", tags=["AI Productivity Suite"])
 
 @app.get("/")
 async def root():
