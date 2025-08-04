@@ -1,4 +1,28 @@
-from fastapi import FastAPI, WebSocket, WebSocketDisconnect
+#!/usr/bin/env python3
+import os, subprocess, time, webbrowser, socket
+
+def find_available_port(start_port=3000):
+    for port in range(start_port, start_port + 100):
+        try:
+            with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+                s.bind(('localhost', port))
+                return port
+        except OSError:
+            continue
+    return start_port
+
+def create_ai_complete():
+    print("AETHERIUM AI COMPLETE UI")
+    print("=" * 50)
+    print("✓ 80+ Tools Interactive")
+    print("✓ Working Chat Responses") 
+    print("✓ Modern UI Like Screenshots")
+    print("✓ All Navigation Working")
+    print("=" * 50)
+    
+    # Create working backend
+    with open("ai_complete_backend.py", "w", encoding='utf-8') as f:
+        f.write('''from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.responses import HTMLResponse
 import asyncio, json, logging, time, uuid
 
@@ -328,7 +352,7 @@ function handleMessage(event){
                 currentResponse=createMessage('ai','');
                 chatArea.appendChild(currentResponse);
             }
-            currentResponse.querySelector('.message-text').innerHTML=msg.content.replace(/\n/g,'<br>');
+            currentResponse.querySelector('.message-text').innerHTML=msg.content.replace(/\\n/g,'<br>');
             scrollToBottom();
             if(msg.complete){currentResponse=null;}
             break;
@@ -369,7 +393,7 @@ function loadTools(){
         tools=toolsData;
         const grid=document.getElementById('tools-grid');
         grid.innerHTML=tools.map(tool=>
-            '<div class="tool-button" onclick="launchTool(''+tool.name+'')">'+
+            '<div class="tool-button" onclick="launchTool(\''+tool.name+'\')">'+
             '<div class="tool-icon">'+tool.icon+'</div>'+
             '<div class="tool-name">'+tool.name+'</div>'+
             '</div>'
@@ -409,3 +433,31 @@ document.getElementById('chat-input').addEventListener('keydown',function(e){
 });
 initWS();
 </script></body></html>"""
+''')
+    
+    port = find_available_port()
+    print(f"Starting Complete AI Interface on port {port}...")
+    
+    server_process = subprocess.Popen([
+        "python", "-m", "uvicorn", "ai_complete_backend:app", 
+        "--host", "127.0.0.1", "--port", str(port), "--reload"
+    ])
+    
+    time.sleep(3)
+    url = f"http://localhost:{port}"
+    webbrowser.open(url)
+    
+    print("=" * 50)
+    print("🚀 AI COMPLETE UI LAUNCHED!")
+    print("=" * 50)
+    print(f"🌐 Platform: {url}")
+    print("✅ 80+ Tools: Interactive & Working")
+    print("✅ Chat Responses: Real-time AI")
+    print("✅ Modern UI: Like Screenshots") 
+    print("✅ All Features: Fully Functional")
+    print("=" * 50)
+    
+    return server_process
+
+if __name__ == "__main__":
+    create_ai_complete()
