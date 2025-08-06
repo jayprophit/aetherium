@@ -2,24 +2,41 @@
   "name": "aetherium-ai-platform",
   "version": "2.0.0",
   "description": "⚛️ Aetherium - Advanced AI Productivity Platform with Quantum Computing, Time Crystals & Neuromorphic AI",
-  "main": "src/components/AetheriumDashboard.tsx",
+  "type": "module",
+  "main": "dist/index.js",
   "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "start": "python scripts/aetherium-launcher.py",
-    "dev": "python scripts/aetherium-launcher.py --debug",
-    "build": "echo 'Build process - integrate with your preferred build system'",
-    "test": "echo 'Testing framework integration needed'",
-    "launch": "python scripts/aetherium-launcher.py",
-    "preview": "python scripts/aetherium-launcher.py --port 8200"
+    "start:dev": "npm run dev",
+    "start:backend": "cd aetherium/platform && python main.py",
+    "start:full": "concurrently \"npm run start:backend\" \"npm run dev\"",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "lint": "eslint src --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint src --ext ts,tsx --fix",
+    "format": "prettier --write src/**/*.{ts,tsx,js,jsx,json,css,scss,md}",
+    "format:check": "prettier --check src/**/*.{ts,tsx,js,jsx,json,css,scss,md}",
+    "typecheck": "tsc --noEmit",
+    "validate": "python scripts/validate-platform.py",
+    "clean": "rimraf dist .tsbuildinfo",
+    "deploy": "npm run build && python scripts/deploy-production.py"
   },
   "keywords": [
     "ai",
-    "productivity",
+    "productivity", 
     "quantum-computing",
     "time-crystals",
     "neuromorphic-ai",
     "react",
-    "dashboard",
-    "platform"
+    "typescript",
+    "vite",
+    "fastapi",
+    "websocket",
+    "real-time-chat"
   ],
   "author": "Aetherium Development Team",
   "license": "MIT",
@@ -32,19 +49,37 @@
   },
   "homepage": "https://github.com/jayprophit/aetherium#readme",
   "engines": {
-    "node": ">=16.0.0",
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0",
     "python": ">=3.8.0"
   },
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "lucide-react": "^0.263.1",
-    "tailwindcss": "^3.3.0"
+    "@types/react": "^18.2.15",
+    "@types/react-dom": "^18.2.7"
   },
   "devDependencies": {
-    "@babel/standalone": "^7.22.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0"
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "@vitest/ui": "^0.34.0",
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^8.2.0",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react": "^7.32.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "jsdom": "^22.1.0",
+    "postcss": "^8.4.27",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.1",
+    "sass": "^1.64.1",
+    "tailwindcss": "^3.3.3",
+    "typescript": "^5.0.2",
+    "vite": "^4.4.5",
+    "vitest": "^0.34.0"
   },
   "browserslist": {
     "production": [
@@ -54,8 +89,35 @@
     ],
     "development": [
       "last 1 chrome version",
-      "last 1 firefox version",
+      "last 1 firefox version", 
       "last 1 safari version"
     ]
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "@typescript-eslint/recommended",
+      "plugin:react/recommended",
+      "plugin:react-hooks/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "plugins": ["@typescript-eslint", "react", "react-refresh"],
+    "settings": {
+      "react": {
+        "version": "detect"
+      }
+    },
+    "rules": {
+      "react-refresh/only-export-components": "warn",
+      "react/react-in-jsx-scope": "off"
+    }
   }
 }

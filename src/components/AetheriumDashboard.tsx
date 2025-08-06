@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { useAppContext } from '../App';
 import { 
   Send, 
   Mic, 
@@ -108,6 +109,17 @@ import {
 } from 'lucide-react';
 
 const AetheriumPlatform = () => {
+  // Get services from App context
+  const {
+    systemHealth,
+    availableModels,
+    isWebSocketConnected,
+    currentChatSession,
+    apiService,
+    aiModelsService,
+    websocketService
+  } = useAppContext();
+
   const [darkMode, setDarkMode] = useState(true);
   const [showDropdown, setShowDropdown] = useState(null);
   const [message, setMessage] = useState('');
@@ -117,9 +129,61 @@ const AetheriumPlatform = () => {
   const [activeLeftTab, setActiveLeftTab] = useState('chats');
   const [activeCenterTab, setActiveCenterTab] = useState('chat');
   const [taskProgress, setTaskProgress] = useState(85);
+  const [chatMessages, setChatMessages] = useState([
+    {
+      id: '1',
+      content: 'Welcome to Aetherium AI Platform! I\'m your quantum-enhanced AI assistant.',
+      role: 'assistant',
+      timestamp: new Date().toISOString()
+    }
+  ]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [availableTools, setAvailableTools] = useState([]);
   const fileInputRef = useRef(null);
 
-  const models = [
+  // Load available tools on component mount
+  useEffect(() => {
+    loadAvailableTools();
+    
+    // Set up WebSocket message handler
+    const handleMessage = (message) => {
+      if (message.type === 'chat' && message.sessionId === currentChatSession?.id) {
+        setChatMessages(prev => [...prev, {
+          id: Date.now().toString(),
+          content: message.content,
+          role: 'assistant',
+          timestamp: new Date().toISOString()
+        }]);
+        setIsLoading(false);
+      }
+    };
+
+    websocketService.onMessage('dashboard-handler', handleMessage);
+
+    return () => {
+      websocketService.removeMessageHandler('dashboard-handler');
+    };
+  }, [currentChatSession?.id]);
+
+  // Load available tools from API
+  const loadAvailableTools = async () => {
+    try {
+      const tools = await apiService.getAvailableTools();
+      setAvailableTools(tools);
+    } catch (error) {
+      console.error('Failed to load tools:', error);
+      // Use fallback tools if API fails
+      setAvailableTools(aiTools);
+    }
+  };
+
+  // Use available models from AI service
+  const models = availableModels.length > 0 ? availableModels.map(model => ({
+    name: model.name,
+    provider: model.provider,
+    type: model.provider === 'Aetherium' ? 'platform' : 'third-party',
+    status: model.available ? 'online' : 'offline'
+  })) : [
     { name: 'Aetherium AI Core', provider: 'Aetherium', type: 'platform', status: 'online' },
     { name: 'Quantum Neural Net', provider: 'Aetherium', type: 'platform', status: 'online' },
     { name: 'Time Crystal AI', provider: 'Aetherium', type: 'platform', status: 'online' },
@@ -132,25 +196,6 @@ const AetheriumPlatform = () => {
     { name: 'Llama 3', provider: 'Meta', type: 'third-party', status: 'online' },
   ];
 
-  const conversations = [
-    { id: 1, title: 'Aetherium Platform Development', time: 'Now', pinned: true, type: 'active' },
-    { id: 2, title: 'Quantum Computing Research', time: '2 hours ago', pinned: false, type: 'normal' },
-    { id: 3, title: 'Time Crystals Implementation', time: 'Yesterday', pinned: false, type: 'normal' },
-    { id: 4, title: 'Neuromorphic AI Design', time: '2 days ago', pinned: false, type: 'normal' },
-    { id: 5, title: 'AI Productivity Suite', time: '3 days ago', pinned: false, type: 'normal' },
-    { id: 6, title: 'Blockchain Integration', time: '1 week ago', pinned: false, type: 'normal' },
-    { id: 7, title: 'Trading Bot Development', time: '2 weeks ago', pinned: false, type: 'normal' },
-  ];
-
-  const tasks = [
-    { id: 1, title: 'Implement comprehensive Aetherium AI platform', status: 'completed' },
-    { id: 2, title: 'Create unified interface with Manus + Claude design', status: 'completed' },
-    { id: 3, title: 'Build all 80+ AI tools and capabilities', status: 'completed' },
-    { id: 4, title: 'Deploy quantum computing and time crystals', status: 'in-progress' },
-    { id: 5, title: 'Integrate neuromorphic AI systems', status: 'pending' },
-  ];
-
-  // Comprehensive AI Tools & Capabilities (80+ tools as requested)
   const aiTools = [
     // Research & Analysis
     { name: 'Wide Research', icon: Search, category: 'Research', color: 'blue' },
@@ -257,15 +302,114 @@ const AetheriumPlatform = () => {
     { id: 'gemini-pro', name: 'Gemini Pro', type: 'Google', status: 'connected' }
   ];
 
+  const conversations = [
+    { id: 1, title: 'Aetherium Platform Development', time: 'Now', pinned: true, type: 'active' },
+    { id: 2, title: 'Quantum Computing Research', time: '2 hours ago', pinned: false, type: 'normal' },
+    { id: 3, title: 'Time Crystals Implementation', time: 'Yesterday', pinned: false, type: 'normal' },
+    { id: 4, title: 'Neuromorphic AI Design', time: '2 days ago', pinned: false, type: 'normal' },
+    { id: 5, title: 'AI Productivity Suite', time: '3 days ago', pinned: false, type: 'normal' },
+    { id: 6, title: 'Blockchain Integration', time: '1 week ago', pinned: false, type: 'normal' },
+    { id: 7, title: 'Trading Bot Development', time: '2 weeks ago', pinned: false, type: 'normal' },
+  ];
+
+  const tasks = [
+    { id: 1, title: 'Implement comprehensive Aetherium AI platform', status: 'completed' },
+    { id: 2, title: 'Create unified interface with Manus + Claude design', status: 'completed' },
+    { id: 3, title: 'Build all 80+ AI tools and capabilities', status: 'completed' },
+    { id: 4, title: 'Deploy quantum computing and time crystals', status: 'in-progress' },
+    { id: 5, title: 'Integrate neuromorphic AI systems', status: 'pending' },
+  ];
+
   const toggleDropdown = (dropdown) => {
     setShowDropdown(showDropdown === dropdown ? null : dropdown);
   };
 
   const handleSendMessage = () => {
-    if (message.trim()) {
-      console.log('Sending message:', message);
+    if (message.trim() && !isLoading) {
+      // Add user message to chat
+      const userMessage = {
+        id: Date.now().toString(),
+        content: message.trim(),
+        role: 'user',
+        timestamp: new Date().toISOString()
+      };
+      
+      setChatMessages(prev => [...prev, userMessage]);
+      setIsLoading(true);
+      
+      // Send message via WebSocket if connected, otherwise use API
+      if (isWebSocketConnected && currentChatSession) {
+        websocketService.sendChatMessage(currentChatSession.id, message.trim(), selectedModel);
+      } else {
+        // Fallback to API call
+        apiService.sendChatMessage({
+          message: message.trim(),
+          sessionId: currentChatSession?.id || 'default',
+          model: selectedModel
+        }).then(response => {
+          setChatMessages(prev => [...prev, {
+            id: response.id,
+            content: response.content,
+            role: 'assistant',
+            timestamp: response.timestamp
+          }]);
+          setIsLoading(false);
+        }).catch(error => {
+          console.error('Chat message failed:', error);
+          setChatMessages(prev => [...prev, {
+            id: Date.now().toString(),
+            content: 'Sorry, I encountered an error. Please try again.',
+            role: 'assistant',
+            timestamp: new Date().toISOString()
+          }]);
+          setIsLoading(false);
+        });
+      }
+      
       setMessage('');
     }
+  };
+
+  // Execute AI tool
+  const executeTool = async (toolId: string, toolName: string) => {
+    setIsLoading(true);
+    
+    try {
+      // Add system message about tool execution
+      setChatMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        content: `🔧 Executing ${toolName}...`,
+        role: 'system',
+        timestamp: new Date().toISOString()
+      }]);
+
+      const result = await apiService.executeTool(toolId, {
+        context: message || 'No specific context provided'
+      });
+
+      // Add tool result to chat
+      setChatMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        content: `✅ ${toolName} completed successfully!\n\nResult: ${result.result}`,
+        role: 'assistant',
+        timestamp: new Date().toISOString()
+      }]);
+
+    } catch (error) {
+      console.error(`Tool execution failed for ${toolName}:`, error);
+      setChatMessages(prev => [...prev, {
+        id: Date.now().toString(),
+        content: `❌ ${toolName} execution failed: ${error.message}`,
+        role: 'assistant',
+        timestamp: new Date().toISOString()
+      }]);
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleClickOutside = () => {
+    setShowDropdown(null);
   };
 
   useEffect(() => {
@@ -428,10 +572,7 @@ const AetheriumPlatform = () => {
                     <div key={idx} className={`p-3 rounded-lg cursor-pointer ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}>
                       <div className="flex items-center justify-between">
                         <div className={`font-medium text-sm ${darkMode ? 'text-white' : 'text-gray-900'}`}>{task.name}</div>
-                        <div className={`w-2 h-2 rounded-full ${
-                          task.status === 'completed' ? 'bg-green-500' : 
-                          task.status === 'in-progress' ? 'bg-yellow-500' : 'bg-gray-500'
-                        }`}></div>
+                        <div className="w-2 h-2 bg-green-500 rounded-full"></div>
                       </div>
                       <div className="flex items-center justify-between mt-1">
                         <div className="text-xs text-gray-500 capitalize">{task.status.replace('-', ' ')}</div>
@@ -459,7 +600,7 @@ const AetheriumPlatform = () => {
                   { title: 'Machine Learning Models', time: '2 weeks ago', category: 'AI', starred: false },
                   { title: 'Productivity Automation', time: '2 weeks ago', category: 'Productivity', starred: false }
                 ].map((chat, idx) => (
-                  <div key={idx} className={`p-3 rounded-lg cursor-pointer ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'} transition-colors`}>
+                  <div key={idx} className={`p-3 rounded-lg cursor-pointer ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-white'} transition-colors`}>
                     <div className="flex items-center justify-between">
                       <div className={`font-medium text-sm ${darkMode ? 'text-white' : 'text-gray-900'}`}>{chat.title}</div>
                       <Star className={`w-3 h-3 cursor-pointer transition-colors ${chat.starred ? 'text-yellow-500 fill-current' : 'text-gray-400 hover:text-yellow-500'}`} />
@@ -472,46 +613,6 @@ const AetheriumPlatform = () => {
                     </div>
                   </div>
                 ))}
-              </div>
-            )}
-            {activeLeftTab === 'settings' && (
-              <div className="space-y-4">
-                <div className={`text-xs font-semibold ${darkMode ? 'text-gray-400' : 'text-gray-500'} uppercase tracking-wide mb-3`}>
-                  Platform Settings
-                </div>
-                <div className="space-y-3">
-                  {[
-                    { label: 'User Profile', icon: User, description: 'Manage account & preferences' },
-                    { label: 'Appearance', icon: Palette, description: 'Theme & display options' },
-                    { label: 'AI Models', icon: Brain, description: 'Configure AI model settings' },
-                    { label: 'Quantum Settings', icon: Atom, description: 'Quantum computing parameters' },
-                    { label: 'Notifications', icon: Bell, description: 'Alert & notification preferences' },
-                    { label: 'Privacy & Security', icon: Shield, description: 'Data protection settings' },
-                    { label: 'Advanced', icon: Settings, description: 'Developer & system settings' }
-                  ].map((setting, idx) => (
-                    <button key={idx} className={`w-full text-left p-3 rounded-lg ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'} transition-colors group`}>
-                      <div className="flex items-center space-x-3">
-                        <div className={`p-2 rounded-lg ${darkMode ? 'bg-gray-600' : 'bg-gray-200'} group-hover:bg-purple-500 transition-colors`}>
-                          <setting.icon className="w-4 h-4 group-hover:text-white" />
-                        </div>
-                        <div className="flex-1">
-                          <div className={`font-medium text-sm ${darkMode ? 'text-white' : 'text-gray-900'}`}>{setting.label}</div>
-                          <div className="text-xs text-gray-500 mt-0.5">{setting.description}</div>
-                        </div>
-                        <ChevronRight className="w-4 h-4 text-gray-400 group-hover:text-purple-500 transition-colors" />
-                      </div>
-                    </button>
-                  ))}
-                </div>
-                
-                <div className={`mt-6 p-3 rounded-lg ${darkMode ? 'bg-gray-700' : 'bg-blue-50'} border-l-4 border-blue-500`}>
-                  <div className={`text-sm font-medium ${darkMode ? 'text-blue-300' : 'text-blue-700'} mb-1`}>
-                    ⚛️ Quantum Status
-                  </div>
-                  <div className={`text-xs ${darkMode ? 'text-gray-400' : 'text-gray-600'}`}>
-                    All quantum systems operational • Time crystals synchronized • Neuromorphic AI active
-                  </div>
-                </div>
               </div>
             )}
             {conversations.map((conv) => (

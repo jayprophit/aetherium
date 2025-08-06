@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>⚛️ Aetherium - AI Productivity Platform</title>
+    <meta name="description" content="Advanced AI productivity platform with quantum computing, time crystals, and neuromorphic AI capabilities">
+    
+    <!-- SEO and Social Media Meta Tags -->
+    <meta property="og:title" content="Aetherium - AI Productivity Platform">
+    <meta property="og:description" content="Advanced AI productivity platform with quantum computing, time crystals, and neuromorphic AI capabilities">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/jayprophit/aetherium">
+    <meta property="og:image" content="/assets/aetherium-preview.png">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Aetherium - AI Productivity Platform">
+    <meta name="twitter:description" content="Advanced AI productivity platform with quantum computing, time crystals, and neuromorphic AI capabilities">
+    <meta name="twitter:image" content="/assets/aetherium-preview.png">
+    
+    <!-- PWA Support -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Aetherium">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/svg+xml" href="/assets/aetherium-icon.svg">
+    <link rel="alternate icon" href="/assets/favicon.ico">
+    <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+    <link rel="manifest" href="/manifest.json">
+    
+    <!-- Preconnect to external APIs for performance -->
+    <link rel="preconnect" href="https://api.openai.com">
+    <link rel="preconnect" href="https://api.anthropic.com">
+    <link rel="preconnect" href="https://generativelanguage.googleapis.com">
+    
+    <!-- Critical CSS (inline for performance) -->
+    <style>
+        /* Critical CSS for initial load */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 100%);
+            color: white;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        #root {
+            min-height: 100vh;
+            width: 100%;
+        }
+        
+        /* Loading screen styles */
+        .loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a3a 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .loading-screen.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .quantum-loader {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(102, 126, 234, 0.3);
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            animation: quantumSpin 1s linear infinite;
+        }
+        
+        @keyframes quantumSpin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .loading-title {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .loading-subtitle {
+            margin-top: 10px;
+            font-size: 14px;
+            opacity: 0.7;
+            animation: loadingPulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes loadingPulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
+        }
+        
+        .loading-progress {
+            margin-top: 30px;
+            width: 200px;
+            height: 2px;
+            background: rgba(102, 126, 234, 0.2);
+            border-radius: 1px;
+            overflow: hidden;
+        }
+        
+        .loading-progress-bar {
+            height: 100%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 1px;
+            animation: loadingProgress 3s ease-in-out infinite;
+        }
+        
+        @keyframes loadingProgress {
+            0% { width: 0%; }
+            50% { width: 70%; }
+            100% { width: 100%; }
+        }
+        
+        /* Error screen styles */
+        .error-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a3a 0%, #2d1b69 100%);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9998;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .error-title {
+            font-size: 24px;
+            color: #ef4444;
+            margin-bottom: 10px;
+        }
+        
+        .error-message {
+            font-size: 16px;
+            opacity: 0.8;
+            margin-bottom: 20px;
+            max-width: 600px;
+        }
+        
+        .error-retry {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+        
+        .error-retry:hover {
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="quantum-loader"></div>
+        <div class="loading-title">⚛️ Aetherium</div>
+        <div class="loading-subtitle">Initializing Quantum AI Platform</div>
+        <div class="loading-progress">
+            <div class="loading-progress-bar"></div>
+        </div>
+    </div>
+    
+    <!-- Error Screen -->
+    <div id="error-screen" class="error-screen">
+        <div class="error-title">⚠️ Initialization Error</div>
+        <div class="error-message">
+            Failed to load the Aetherium platform. Please check your connection and try again.
+        </div>
+        <button class="error-retry" onclick="window.location.reload()">
+            🔄 Retry
+        </button>
+    </div>
+    
+    <!-- Main Application -->
+    <div id="root"></div>
+    
+    <!-- Module Scripts -->
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+        // Register service worker for PWA functionality
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then((registration) => {
+                        console.log('SW registered: ', registration);
+                    })
+                    .catch((registrationError) => {
+                        console.log('SW registration failed: ', registrationError);
+                    });
+            });
+        }
+        
+        // Global error handler
+        window.addEventListener('error', (event) => {
+            console.error('Global error:', event.error);
+            showErrorScreen(event.error?.message || 'Unknown error occurred');
+        });
+        
+        window.addEventListener('unhandledrejection', (event) => {
+            console.error('Unhandled promise rejection:', event.reason);
+            showErrorScreen(event.reason?.message || 'Promise rejection occurred');
+        });
+        
+        function showErrorScreen(message) {
+            const loadingScreen = document.getElementById('loading-screen');
+            const errorScreen = document.getElementById('error-screen');
+            const errorMessage = errorScreen.querySelector('.error-message');
+            
+            if (loadingScreen) loadingScreen.style.display = 'none';
+            if (errorScreen) {
+                errorMessage.textContent = message;
+                errorScreen.style.display = 'flex';
+            }
+        }
+        
+        // Hide loading screen when app loads
+        window.addEventListener('aetherium-ready', () => {
+            setTimeout(() => {
+                const loadingScreen = document.getElementById('loading-screen');
+                if (loadingScreen) {
+                    loadingScreen.classList.add('hidden');
+                }
+            }, 1000); // Show loading for at least 1 second
+        });
+        
+        // Development helpers
+        if (import.meta.env?.DEV) {
+            console.log('🚀 Aetherium Development Mode');
+            console.log('📊 Build Info:', {
+                version: '__APP_VERSION__',
+                buildTime: '__BUILD_TIME__',
+                dev: '__DEV__'
+            });
+        }
+    </script>
+</body>
+</html>

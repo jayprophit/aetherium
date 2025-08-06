@@ -1,0 +1,429 @@
+/**
+ * AETHERIUM GLOBAL STYLES
+ * Comprehensive styling for the AI Productivity Platform
+ */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* CSS Custom Properties */
+:root {
+  /* Aetherium Brand Colors */
+  --aetherium-primary: #667eea;
+  --aetherium-secondary: #764ba2;
+  --aetherium-accent: #f093fb;
+  
+  /* Dark Theme Colors */
+  --bg-primary: #0f0f23;
+  --bg-secondary: #1a1a3a;
+  --bg-tertiary: #2d2d5a;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --bg-hover: rgba(255, 255, 255, 0.1);
+  
+  /* Text Colors */
+  --text-primary: #ffffff;
+  --text-secondary: #a0a9c0;
+  --text-muted: #6b7280;
+  --text-accent: var(--aetherium-primary);
+  
+  /* Status Colors */
+  --success: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+  
+  /* Quantum Effects */
+  --quantum-glow: 0 0 20px rgba(102, 126, 234, 0.5);
+  --quantum-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  
+  /* Animations */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Layout */
+  --sidebar-width: 280px;
+  --header-height: 64px;
+  --border-radius: 8px;
+  --border-radius-lg: 12px;
+}
+
+/* Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 
+               'Helvetica Neue', Arial, sans-serif;
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.75rem; }
+h4 { font-size: 1.5rem; }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1.125rem; }
+
+p {
+  margin-bottom: 1em;
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--aetherium-secondary);
+}
+
+/* Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, var(--aetherium-primary), var(--aetherium-secondary));
+  border-radius: 3px;
+  transition: background var(--transition-fast);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, var(--aetherium-secondary), var(--aetherium-accent));
+}
+
+/* Selection Styles */
+::selection {
+  background: rgba(102, 126, 234, 0.3);
+  color: var(--text-primary);
+}
+
+/* Aetherium Component Classes */
+
+/* Quantum Glow Effect */
+.quantum-glow {
+  animation: quantumGlow 4s ease-in-out infinite;
+  border: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+@keyframes quantumGlow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(102, 126, 234, 0.8), 0 0 40px rgba(118, 75, 162, 0.6);
+    border-color: rgba(102, 126, 234, 0.8);
+  }
+}
+
+/* Aetherium Brand Gradient Text */
+.aetherium-brand {
+  background: linear-gradient(135deg, var(--aetherium-primary) 0%, var(--aetherium-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: brandShimmer 3s ease-in-out infinite;
+}
+
+@keyframes brandShimmer {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.2); }
+}
+
+/* Glass Morphism Card */
+.glass-card {
+  background: var(--bg-card);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  box-shadow: var(--quantum-shadow);
+}
+
+/* Interactive Button */
+.interactive-button {
+  background: linear-gradient(135deg, var(--aetherium-primary) 0%, var(--aetherium-secondary) 100%);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+}
+
+.interactive-button:active {
+  transform: translateY(0);
+}
+
+.interactive-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left var(--transition-slow);
+}
+
+.interactive-button:hover::before {
+  left: 100%;
+}
+
+/* Tool Button */
+.tool-button {
+  background: var(--bg-card);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  padding: 1rem;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-button:hover {
+  background: var(--bg-hover);
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  border-color: var(--aetherium-primary);
+}
+
+.tool-button:active {
+  transform: translateY(-2px) scale(1.01);
+}
+
+/* Chat Bubble */
+.chat-bubble {
+  animation: slideUp 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Sidebar Tab */
+.sidebar-tab {
+  transition: all var(--transition-fast);
+  border-left: 3px solid transparent;
+  position: relative;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+}
+
+.sidebar-tab.active {
+  border-left-color: var(--aetherium-primary);
+  background-color: rgba(102, 126, 234, 0.2);
+}
+
+.sidebar-tab.active::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: linear-gradient(135deg, var(--aetherium-primary), var(--aetherium-secondary));
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.sidebar-tab:hover:not(.active) {
+  background-color: var(--bg-hover);
+  border-left-color: rgba(102, 126, 234, 0.5);
+}
+
+/* Status Indicator */
+.status-indicator {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  animation: statusPulse 2s ease-in-out infinite;
+}
+
+.status-indicator.online {
+  background-color: var(--success);
+}
+
+.status-indicator.offline {
+  background-color: var(--error);
+}
+
+.status-indicator.degraded {
+  background-color: var(--warning);
+}
+
+@keyframes statusPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Loading Spinner */
+.quantum-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(102, 126, 234, 0.3);
+  border-top: 3px solid var(--aetherium-primary);
+  border-radius: 50%;
+  animation: quantumSpin 1s linear infinite;
+}
+
+@keyframes quantumSpin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error Fallback */
+.error-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  text-align: center;
+  padding: 2rem;
+}
+
+.error-fallback h2 {
+  color: var(--error);
+  margin-bottom: 1rem;
+}
+
+.error-fallback details {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: var(--bg-card);
+  border-radius: var(--border-radius);
+  max-width: 600px;
+}
+
+.error-fallback button {
+  @apply interactive-button;
+  margin-top: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  :root {
+    --sidebar-width: 240px;
+    --header-height: 56px;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.5rem; }
+  
+  .tool-button {
+    padding: 0.75rem;
+  }
+  
+  .interactive-button {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --sidebar-width: 100vw;
+  }
+  
+  body {
+    font-size: 0.9rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .sidebar-tab,
+  .tool-button,
+  .interactive-button {
+    background: none !important;
+    box-shadow: none !important;
+    transform: none !important;
+  }
+  
+  .quantum-glow,
+  .aetherium-brand {
+    animation: none !important;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  :root {
+    --bg-primary: #000000;
+    --bg-secondary: #1a1a1a;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .quantum-glow,
+  .aetherium-brand,
+  .status-indicator,
+  .quantum-spinner {
+    animation: none !important;
+  }
+}
