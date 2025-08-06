@@ -5,10 +5,12 @@
 
 import React, { useEffect, useState } from 'react';
 import IntegratedAetheriumDashboard from './components/IntegratedAetheriumDashboard';
+import AuthModal from './components/auth/AuthModal';
 import { apiService, SystemHealth } from './services/api';
 import { aiModelsService, AIModelConfig } from './services/aiModels';
 import { websocketService, ChatSession } from './services/websocket';
 import { storageService } from './services/storage';
+import { useAuth } from './hooks/useAuth';
 import initDevTools from './utils/devtools';
 
 // App Context for global state management
@@ -21,9 +23,11 @@ export interface AppContextType {
   aiModelsService: typeof aiModelsService;
   websocketService: typeof websocketService;
   storageService: typeof storageService;
+  isAuthenticated: boolean;
+  user: any;
+  login: (email: string, password: string) => Promise<boolean>;
+  logout: () => void;
 }
-
-export const AppContext = React.createContext<AppContextType | null>(null);
 
 // Main App Component
 const App: React.FC = () => {
@@ -34,11 +38,15 @@ const App: React.FC = () => {
   const [currentChatSession, setCurrentChatSession] = useState<ChatSession | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [showAuthModal, setShowAuthModal] = useState(false);
+
+  // Add authentication
+  const { isAuthenticated, user, login, logout } = useAuth();
 
   // Initialize app state
   useEffect(() => {
     initializeApp();
-    
+
     // Initialize development tools in dev mode
     if (import.meta.env.DEV) {
       initDevTools();
@@ -141,6 +149,10 @@ const App: React.FC = () => {
     aiModelsService,
     websocketService,
     storageService,
+    isAuthenticated,
+    user,
+    login,
+    logout,
   };
 
   // Loading screen
@@ -218,7 +230,39 @@ const App: React.FC = () => {
             }`}
             title={`AI Models: ${availableModels.length} available`}
           />
+
+          {/* Authentication Status */}
+          <div className="flex items-center space-x-2">
+            {isAuthenticated ? (
+              <button
+                onClick={() => setShowAuthModal(true)}
+                className="flex items-center space-x-2 px-3 py-1 bg-green-500/20 border border-green-500/30 rounded-full text-green-400 hover:bg-green-500/30 transition-colors"
+                title={`Logged in as ${user?.name || 'User'}`}
+              >
+                <div className="w-2 h-2 bg-green-500 rounded-full" />
+                <span className="text-xs">{user?.name || 'User'}</span>
+              </button>
+            ) : (
+              <button
+                onClick={() => setShowAuthModal(true)}
+                className="px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-purple-400 hover:bg-purple-500/30 transition-colors text-xs"
+              >
+                Sign In
+              </button>
+            )}
+          </div>
         </div>
+
+        {/* Authentication Modal */}
+        <AuthModal
+          isOpen={showAuthModal}
+          onClose={() => setShowAuthModal(false)}
+          onAuthSuccess={() => {
+            setShowAuthModal(false);
+            // Refresh app state after authentication
+            initializeApp();
+          }}
+        />
 
         {/* Main Integrated Dashboard */}
         <IntegratedAetheriumDashboard />
