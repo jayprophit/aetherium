@@ -1,0 +1,61 @@
+{
+  "name": "aetherium-ai-platform",
+  "version": "2.0.0",
+  "description": "⚛️ Aetherium - Advanced AI Productivity Platform with Quantum Computing, Time Crystals & Neuromorphic AI",
+  "main": "src/components/AetheriumDashboard.tsx",
+  "scripts": {
+    "start": "python scripts/aetherium-launcher.py",
+    "dev": "python scripts/aetherium-launcher.py --debug",
+    "build": "echo 'Build process - integrate with your preferred build system'",
+    "test": "echo 'Testing framework integration needed'",
+    "launch": "python scripts/aetherium-launcher.py",
+    "preview": "python scripts/aetherium-launcher.py --port 8200"
+  },
+  "keywords": [
+    "ai",
+    "productivity",
+    "quantum-computing",
+    "time-crystals",
+    "neuromorphic-ai",
+    "react",
+    "dashboard",
+    "platform"
+  ],
+  "author": "Aetherium Development Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jayprophit/aetherium.git"
+  },
+  "bugs": {
+    "url": "https://github.com/jayprophit/aetherium/issues"
+  },
+  "homepage": "https://github.com/jayprophit/aetherium#readme",
+  "engines": {
+    "node": ">=16.0.0",
+    "python": ">=3.8.0"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "lucide-react": "^0.263.1",
+    "tailwindcss": "^3.3.0"
+  },
+  "devDependencies": {
+    "@babel/standalone": "^7.22.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
